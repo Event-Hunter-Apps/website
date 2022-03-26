@@ -1,0 +1,47 @@
+.content{
+    padding: 2rem;
+    /* background-color: #e2edff; */
+}
+
+.img-responsive {
+  width: 90px; /* or to whatever you want here */
+  height: 100px; /* or to whatever you want here */
+  object-fit: cover;
+}
+
+.img-responsive-detail {
+  width: 150px; /* or to whatever you want here */
+  height: 190px; /* or to whatever you want here */
+  object-fit: cover;
+}
+
+#list-item{
+    border-radius: 5px;
+    border-color: #EEEEEE;
+    border-width: 2px;
+
+}
+
+.btn-action{
+  border-radius: 15px;
+  height: max-content;
+  width: fit-content;
+  
+}
+
+.autohide {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1030;
+}
+.scrolled-down {
+  transform: translateY(-100%);
+  transition: all 0.3s ease-in-out;
+}
+.scrolled-up {
+  transform: translateY(0);
+  transition: all 0.3s ease-in-out;
+}

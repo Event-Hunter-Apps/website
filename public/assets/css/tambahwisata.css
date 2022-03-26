@@ -1,0 +1,449 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* img {
+    max-width: 100%;
+} */
+
+.preview-tambah-wisata {
+    margin-right: 70px;
+    width: 300px;
+    height: 400px;
+    background-color: white;
+    border-radius: 7%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    box-shadow: 0px 2px 5px #333333;
+}
+
+.container .add-img-tambah-wisata {
+    padding: 0 0;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    background-color: #57C2B8;
+    /* background-color: transparent;
+    border-color: transparent; */
+    position: relative;
+    left: 272px;
+    bottom: 30px;
+}
+
+@media screen and (max-width: 996px) {
+    .preview-tambah-wisata {
+        margin-bottom: 20px;
+    }
+}
+
+.preview-pic-tambah-wisata {
+    /* margin-top: 10; */
+    background-color: #E5E5E5;
+    width: 300px;
+    height: 300px;
+    border-radius: 15px;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+
+/* .preview-tambah-wisata .preview-pic-tambah-wisata::before {
+    position: absolute;
+    content: "";
+    width: 60px;
+    height: 60px;
+    background: #57C2B8;
+    border-radius: 50%;
+    bottom: 150px;
+    left: 410px;
+    transform: translateX(-50%);
+} */
+
+.preview-thumbnail-tambah-wisata.nav-tabs {
+    border: none;
+    margin-top: -30px;
+    margin-left: 20px;
+}
+
+.preview-thumbnail-tambah-wisata.nav-tabs li {
+    width: 18%;
+    margin-right: 13%;
+}
+
+.preview-tambah-wisata .tab-pane {
+    width: 100%;
+}
+
+.preview-thumbnail-tambah-wisata.nav-tabs li img {
+    max-width: 100%;
+    display: block;
+}
+
+.preview-thumbnail-tambah-wisata.nav-tabs li a {
+    padding: 0;
+    margin: 0;
+    background-color: #E5E5E5;
+}
+
+.preview-thumbnail-tambah-wisata.nav-tabs li:last-of-type {
+    margin-right: 0;
+}
+
+.preview-thumbnail-tambah-wisata .rmv-btn-tambah-wisata {
+    background-color: transparent;
+    border-color: transparent;
+    position: relative;
+    left: 33px;
+    bottom: 61px;
+}
+
+.tab-content {
+    overflow: hidden;
+}
+
+.tab-content img {
+    width: 100%;
+    -webkit-animation-name: opacity;
+    animation-name: opacity;
+    -webkit-animation-duration: .3s;
+    animation-duration: .3s;
+}
+
+.card-tambah-wisata {
+    margin-top: 50px;
+    /* background: #eee; */
+    padding: 3em;
+    line-height: 1.5em;
+}
+
+@media screen and (min-width: 997px) {
+    .wrapper-tambah-wisata {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+    }
+}
+
+.details-tambah-wisata {
+    /* margin-left: 65px; */
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.details-tambah-wisata .edit-place-tambah-wisata {
+    background-color: transparent;
+    border-color: transparent;
+    margin-left: 10px;
+}
+
+.details-tambah-wisata .edit-tarif-tambah-wisata {
+    background-color: transparent;
+    border-color: transparent;
+    margin-left: 10px;
+}
+
+input[type="date"] {
+    width: 170px;
+    height: 42px;
+    padding: 2 10;
+    text-align: center;
+    border-radius: 25px;
+    border: 1px solid #57C2B8;
+    cursor: pointer;
+}
+
+input[type="time"] {
+    width: 170px;
+    height: 42px;
+    padding: 2 10;
+    text-align: center;
+    border-radius: 25px;
+    border: 1px solid #57C2B8;
+    cursor: pointer;
+}
+
+.line-date-tambah-wisata {
+    content: "";
+    position: absolute;
+    background-color: #57C2B8;
+    height: 2px;
+    width: 25px;
+    margin: 18 18;
+}
+
+.line-time-tambah-wisata {
+    content: "";
+    position: absolute;
+    background-color: #57C2B8;
+    height: 2px;
+    width: 25px;
+    margin: 18 18;
+}
+
+.col-position-tambah-wisata input {
+    font-size: small;
+    width: 570px;
+    height: 42px;
+    padding-left: 40px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    border-radius: 25px;
+    border: 1px solid #57C2B8;
+}
+
+.col-position-tambah-wisata img {
+    position: relative;
+    /* float: left; */
+    right: 555px;
+}
+
+.tags-tambah-wisata {
+    list-style: none;
+}
+
+.tags-tambah-wisata .tag-tambah-wisata {
+    display: inline-block;
+    margin-top: 10px;
+    margin-right: 10px;
+    padding-left: 15px;
+    padding-right: 30px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background-color: #F0F0F0;
+    border-radius: 25px;
+    font-size: medium;
+}
+
+.tag-tambah-wisata img {
+    position: relative;
+    left: 20px;
+    cursor: pointer;
+}
+
+
+/* .tags-tambah-wisata .tag-add-tambah-wisata {
+    background-color: #F0F0F0;
+    border-radius: 25px;
+    width: 30px;
+    text-align: center;
+    cursor: pointer;
+} */
+
+.select-box-tambah-wisata {
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+}
+
+.select-box-tambah-wisata .option-container-tambah-wisata {
+    background: #ffffff;
+    margin-top: 60px;
+    max-height: 0;
+    width: 200px;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 5px;
+    overflow: hidden;
+    order: 1;
+    position: absolute;
+}
+
+.selected-tambah-wisata {
+    font-size: large;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    border: 1px solid #57C2B8;
+    border-radius: 25px;
+    width: 200px;
+    position: relative;
+    order: 0;
+}
+
+.selected-tambah-wisata::after {
+    content: "";
+    background: url("images/Polygon\ 1.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 100%;
+    width: 17px;
+    right: 15px;
+    top: 16px;
+    transition: all 0.4s;
+}
+
+.select-box-tambah-wisata .option-container-tambah-wisata.active {
+    max-height: 240px;
+    opacity: 1;
+    overflow-y: scroll;
+}
+
+.select-box-tambah-wisata .option-container-tambah-wisata.active+.selected-tambah-wisata::after {
+    transform: rotateX(180deg);
+    top: -17px;
+}
+
+.select-box-tambah-wisata .option-container-tambah-wisata::-webkit-scrollbar {
+    width: 8px;
+    background: #e2e2e2;
+    border-radius: 0 8px 8px 0;
+}
+
+.select-box-tambah-wisata .option-container-tambah-wisata::-webkit-scrollbar-thumb {
+    width: 8px;
+    background: #8a8a8a;
+    border-radius: 0 8px 8px 0;
+}
+
+.select-box-tambah-wisata .option-tambah-wisata,
+.selected-tambah-wisata {
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.select-box-tambah-wisata .option-tambah-wisata:hover {
+    color: #ffffff;
+    background: #57C2B8;
+}
+
+.select-box-tambah-wisata .option-tambah-wisata .radio {
+    display: none;
+}
+
+.select-box-tambah-wisata label {
+    cursor: pointer;
+}
+
+.colors-tambah-wisata {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.product-title-tambah-wisata {
+    /* text-transform: UPPERCASE; */
+    font-weight: bold;
+    color: #333333;
+}
+
+.description-tambah-wisata {
+    margin-left: 30px;
+}
+
+.description-title-tambah-wisata b {
+    font-size: 25px;
+}
+
+.border-description-tambah-wisata {
+    /* height: 120px; */
+    margin-top: 15px;
+    font-size: 12px;
+    border: 1px solid #57C2B8;
+    border-radius: 20px;
+    padding: 20px 30px;
+}
+
+.term-cond-title-tambah-wisata b {
+    font-size: 25px;
+}
+
+.border-term-cond-tambah-wisata {
+    margin-top: 15px;
+    font-size: 12px;
+    border: 1px solid #57C2B8;
+    border-radius: 20px;
+    padding: 20px 30px;
+}
+
+.btn-disc-save-tambah-wisata button {
+    float: right;
+    width: 80px;
+    height: 30px;
+    margin-left: 15px;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    border-radius: 15px;
+    border: none;
+}
+
+.btn-disc-save-tambah-wisata .save-tambah-wisata {
+    color: white;
+    background: #57C2B8;
+}
+
+.btn-disc-save-tambah-wisata .save-tambah-wisata:hover {
+    color: #57C2B8;
+    background: #c6fcf5;
+}
+
+.btn-disc-save-tambah-wisata .discard-tambah-wisata {
+    color: #C72429;
+}
+
+.btn-disc-save-tambah-wisata .discard-tambah-wisata:hover {
+    color: white;
+    background: #C72429;
+}
+
+
+/* 
+@-webkit-keyframes opacity {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(3);
+        transform: scale(3);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+        -webkit-transform: scale(3);
+        transform: scale(3);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+} */
+
+
+/*# sourceMappingURL=style.css.map */
