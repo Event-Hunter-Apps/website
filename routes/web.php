@@ -52,3 +52,7 @@ Route::get('/edit', function () {
 Route::get('/add', function () {
     return view('tambahwisata');
 });
+
+Route::get('/detailEvent', function() {
+    return view('detailevent');
+}); 
