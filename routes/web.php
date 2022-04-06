@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\EventController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,9 +21,7 @@ Route::get('/home', function () {
     return view('landingPage');
 });
 
-Route::get('/event', function () {
-    return view('event');
-});
+Route::get('/event', [EventController::class, 'index']);
 
 Route::get('/checkout', function () {
     return view('checkout');
