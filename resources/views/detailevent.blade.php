@@ -115,7 +115,9 @@
             </div>
         </div>
         <div class="btn-disc-save-detail-event">
-            <button id="btn-save-detail-event"><b>Check Availability</b></button>
+            <a href="/category">
+                <button id="btn-save-detail-event"><b>Check Availability</b></button>
+            </a>
         </div>
     </div>
 

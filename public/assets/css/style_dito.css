@@ -1,47 +1,75 @@
-.content{
+.content {
     padding: 2rem;
     /* background-color: #e2edff; */
 }
 
 .img-responsive {
-  width: 90px; /* or to whatever you want here */
-  height: 100px; /* or to whatever you want here */
-  object-fit: cover;
+    width: 90px; /* or to whatever you want here */
+    height: 100px; /* or to whatever you want here */
+    object-fit: cover;
 }
 
 .img-responsive-detail {
-  width: 150px; /* or to whatever you want here */
-  height: 190px; /* or to whatever you want here */
-  object-fit: cover;
+    width: 150px; /* or to whatever you want here */
+    height: 190px; /* or to whatever you want here */
+    object-fit: cover;
 }
 
-#list-item{
+#list-item {
     border-radius: 5px;
-    border-color: #EEEEEE;
+    border-color: #eeeeee;
     border-width: 2px;
-
 }
 
-.btn-action{
-  border-radius: 15px;
-  height: max-content;
-  width: fit-content;
-  
+.btn-action {
+    border-radius: 15px;
+    height: max-content;
+    width: fit-content;
 }
 
 .autohide {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1030;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030;
 }
 .scrolled-down {
-  transform: translateY(-100%);
-  transition: all 0.3s ease-in-out;
+    transform: translateY(-100%);
+    transition: all 0.3s ease-in-out;
 }
 .scrolled-up {
-  transform: translateY(0);
-  transition: all 0.3s ease-in-out;
+    transform: translateY(0);
+    transition: all 0.3s ease-in-out;
+}
+
+input[type="radio"]:after {
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    top: -3.5px;
+    left: -0.5px;
+
+    position: relative;
+
+    content: "";
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+}
+
+input[type="radio"]:checked:after {
+    width: 16px;
+    height: 16px;
+    border-radius: 15px;
+    top: -3.7px;
+    left: -1px;
+
+    position: relative;
+    background-color: #d1d3d1;
+    content: "";
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
 }
