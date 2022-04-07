@@ -13,7 +13,7 @@
   <!-- <link rel="stylesheet" href="style_dito.css" /> -->
   <link rel="stylesheet" href="./assets/css/style_dito.css">
 
-  <title>Hello, world!</title>
+  <title>Checkout</title>
 </head>
 
 <body>
