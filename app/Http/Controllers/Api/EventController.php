@@ -16,7 +16,7 @@ class EventController extends Controller
     {
         $response = Event::all();
         return [
-            "message"=>"success get all event",
+            "message"=>"success get all events",
             "events"=>$response,
         ];
     }
@@ -39,7 +39,11 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $response = Event::create($request->all());
+        return [
+            "message"=>"success create event",
+            "event" => $response,
+        ];
     }
 
     /**
@@ -50,7 +54,12 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        //
+        $response = Event::find($id);
+        return [
+            "message"=>"sucess get event",
+            "event"=>$response,
+        ];
+        
     }
 
     /**
@@ -61,7 +70,7 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -73,7 +82,14 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $response = Event::find($id);
+
+        // dd($request->all());
+        $response->update($request->all());
+        return [
+            "message"=>"success update event",
+            "event"=> $response,
+        ];
     }
 
     /**
@@ -84,6 +100,11 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $response = Event::find( $id );
+        $response->delete();
+        return [
+            "message"=>"success delete event",
+            "event"=>$response,
+        ];
     }
 }
