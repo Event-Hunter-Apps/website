@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Event;
-class EventController extends Controller
+use App\Models\Tiket;
+class TiketController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,10 @@ class EventController extends Controller
      */
     public function index()
     {
-        $response = Event::all();
+        $response = Tiket::all();
         return [
-            "message"=>"success get all events",
-            "events"=>$response,
+            "message"=>"success get all tikets",
+            "tikets"=>$response,
         ];
     }
 
@@ -39,10 +39,10 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $response = Event::create($request->all());
+        $response = Tiket::create($request->all());
         return [
-            "message"=>"success create event",
-            "event" => $response,
+            "message"=>"success create tiket",
+            "tiket"=>$response,
         ];
     }
 
@@ -54,12 +54,11 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        $response = Event::find($id);
+        $response = Tiket::find($id);
         return [
-            "message"=>"sucess get event",
-            "event"=>$response,
+            "message"=>"sucess get tiket",
+            "tiket"=>$response,
         ];
-        
     }
 
     /**
@@ -70,7 +69,7 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        
+        //
     }
 
     /**
@@ -82,12 +81,12 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $response = Event::find($id);
+        $response = Tiket::find($id);
 
         $response->update($request->all());
         return [
-            "message"=>"success update event",
-            "event"=> $response,
+            "message"=>"success update tiket",
+            "tiket"=> $response,
         ];
     }
 
@@ -99,11 +98,11 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        $response = Event::find( $id );
+        $response = Tiket::find( $id );
         $response->delete();
         return [
-            "message"=>"success delete event",
-            "event"=>$response,
+            "message"=>"success delete tiket",
+            "tiket"=>$response,
         ];
     }
 }

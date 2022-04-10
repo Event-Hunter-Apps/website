@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\API;
+namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Event;
-class EventController extends Controller
+use App\Models\Kategori;
+class KategoriController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +14,10 @@ class EventController extends Controller
      */
     public function index()
     {
-        $response = Event::all();
+        $response = Kategori::all();
         return [
-            "message"=>"success get all events",
-            "events"=>$response,
+            "message"=>"success get all categories",
+            "categories"=>$response,
         ];
     }
 
@@ -39,10 +39,11 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $response = Event::create($request->all());
+        dd($request);
+        $response = Kategori::create($request->all());
         return [
-            "message"=>"success create event",
-            "event" => $response,
+            "message"=>"success create category",
+            "category"=>$response,
         ];
     }
 
@@ -54,12 +55,11 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        $response = Event::find($id);
+        $response = Kategori::find($id);
         return [
-            "message"=>"sucess get event",
-            "event"=>$response,
+            "message"=>"sucess get category",
+            "category"=>$response,
         ];
-        
     }
 
     /**
@@ -82,12 +82,11 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $response = Event::find($id);
-
+        $response = Kategori::find($id);
         $response->update($request->all());
         return [
-            "message"=>"success update event",
-            "event"=> $response,
+            "message"=>"success update category",
+            "category"=> $response,
         ];
     }
 
@@ -99,11 +98,11 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        $response = Event::find( $id );
+        $response = Kategori::find( $id );
         $response->delete();
         return [
-            "message"=>"success delete event",
-            "event"=>$response,
+            "message"=>"success delete category",
+            "category"=>$response,
         ];
     }
 }

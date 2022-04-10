@@ -53,4 +53,4 @@ Route::get('/add', function () {
 
 Route::get('/detailEvent', function() {
     return view('detailevent');
-}); 
+});
