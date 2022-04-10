@@ -2,9 +2,9 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\EventController;
-use App\Http\Controllers\Api\TiketController;
-use App\Http\Controllers\Api\KategoriController;
+use App\Http\Controllers\Api\ApiEventController;
+use App\Http\Controllers\Api\ApiTiketController;
+use App\Http\Controllers\Api\ApiKategoriController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,9 +16,9 @@ use App\Http\Controllers\Api\KategoriController;
 |
 */
 
-Route::resource('events', EventController::class);
-Route::resource('categories', KategoriController::class);
-Route::resource('tikets', TiketController::class);
+Route::resource('events', ApiEventController::class);
+Route::resource('categories', ApiKategoriController::class);
+Route::resource('tikets', ApiTiketController::class);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
