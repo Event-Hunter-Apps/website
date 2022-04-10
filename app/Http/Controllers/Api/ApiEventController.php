@@ -14,12 +14,13 @@ class ApiEventController extends Controller
      */
     public function index()
     {
-        $response = Event::all();
-        return response()->json($response);
-        // return json_encode([
+        $events = Event::get()->toJson(JSON_PRETTY_PRINT);
+        return response($events, 200);
+        // $response = Event::all();
+        // return [
         //     "message"=>"success get all events",
         //     "events"=>$response,
-        // ]);
+        // ];
     }
 
     /**

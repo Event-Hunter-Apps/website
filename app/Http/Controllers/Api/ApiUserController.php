@@ -1,12 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\api;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Event;
-use GuzzleHttp\Client;
 
-class EventController extends Controller
+class ApiUserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::get();
-        return view('event', [
-            'events'=>$events
-        ]);
+        //
     }
 
     /**
