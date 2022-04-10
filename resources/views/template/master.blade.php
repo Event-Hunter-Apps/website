@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Poppins'>
     <link rel="stylesheet" href="./assets/css/style_dito.css">
+    <link rel="stylesheet" href="./assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./assets/css/owl.theme.default.css">
 
     <!-- batas -->
     <link rel="stylesheet" href="./assets/css/style_dito.css">
@@ -71,6 +73,35 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/961ee325af.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="./assets/js/owl.carousel.js"></script>
+
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 30,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: true,
+                    loop: false,
+                },
+                600: {
+                    items: 3,
+                    nav: false,
+                    loop: false,
+                },
+                1000: {
+                    items: 6,
+                    // nav: true,
+                    loop: false,
+                }
+            }
+        })
+    </script>
+
 </body>
 
 </html>

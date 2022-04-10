@@ -2,7 +2,7 @@
 
 <nav class="autohide shadow navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/home">
       <img src="https://media.discordapp.net/attachments/947504606454353961/955881757662666772/Logo.png" alt="" height="40" class="d-inline-block" />
     </a>
 

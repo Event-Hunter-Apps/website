@@ -19,13 +19,15 @@
   </div>
 </div>
 
+
+
 <section id="EVENT">
   <div class="product-list container py-5 ">
     <h2 class="text-center">Event</h2>
-    <div class="row pb-5 my-5">
-      @for ($i=0; $i<6; $i++) <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4 mb-lg-0">
+    <div class="owl-carousel owl-theme pb-5 my-5">
+      @for ($i=0; $i<12; $i++) <div >
         <!-- Card-->
-        <div class="card rounded shadow-sm border-0">
+        <div class="card rounded shadow-sm border-0 mb-4">
           <img src="./assets/img/jakarta.png" alt="" class="img-fluid d-block">
           <div class="card-body">
             <h5> <a href="#" class="text-dark"></a>Monas Indonesia</h5>
@@ -40,18 +42,16 @@
     </div>
     @endfor
   </div>
-  </div>
 </section>
-
 
 
 <section id="TOURIST_SPOT">
   <div class="product-list container py-5 ">
     <h2 class="text-center">Tourist Spot</h2>
-    <div class="row pb-5 my-5">
-      @for ($i=0; $i<6; $i++) <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4 mb-lg-0">
+    <div class="owl-carousel owl-theme pb-5 my-5">
+      @for ($i=0; $i<12; $i++) <div >
         <!-- Card-->
-        <div class="card rounded shadow-sm border-0">
+        <div class="card rounded shadow-sm border-0 mb-4">
           <img src="./assets/img/jakarta.png" alt="" class="img-fluid d-block">
           <div class="card-body">
             <h5> <a href="#" class="text-dark"></a>Monas Indonesia</h5>
@@ -66,30 +66,37 @@
     </div>
     @endfor
   </div>
+</section>
+
+
+<section id="">
+  <div class="product-list container py-5 ">
+    <h2 class="text-center">Viral Place</h2>
+    <div class="owl-carousel owl-theme pb-5 my-5">
+      @for ($i=0; $i<12; $i++) <div >
+        <!-- Card-->
+        <div class="card rounded shadow-sm border-0 mb-4">
+          <img src="./assets/img/jakarta.png" alt="" class="img-fluid d-block">
+          <div class="card-body">
+            <h5> <a href="#" class="text-dark"></a>Monas Indonesia</h5>
+            <p class="small text-muted font-italic">Starting from</p>
+            <p><b>Rp 25.000</b></p>
+            <p class="icon-item"><i class="bi bi-calendar"></i> dummy</p>
+            <p class="icon-item"><i class="bi bi-clock"></i> dummy</p>
+            <p class="icon-item"><i class="bi bi-geo-alt"></i> dummy</p>
+            <a class="stretched-link" href="/detailEvent"></a>
+          </div>
+        </div>
+    </div>
+    @endfor
   </div>
 </section>
 
 
 
-<div class="product-list container py-5 ">
-  <h2 class="text-center">Viral Place</h2>
-  <div class="row pb-5 my-5">
-    @for ($i=0; $i<6; $i++) <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4 mb-lg-0">
-      <!-- Card-->
-      <div class="card rounded shadow-sm border-0">
-        <img src="./assets/img/jakarta.png" alt="" class="img-fluid d-block">
-        <div class="card-body">
-          <h5> <a href="#" class="text-dark"></a>Monas Indonesia</h5>
-          <p class="small text-muted font-italic">Starting from</p>
-          <p><b>Rp 25.000</b></p>
-          <p class="icon-item"><i class="bi bi-calendar"></i> dummy</p>
-          <p class="icon-item"><i class="bi bi-clock"></i> dummy</p>
-          <p class="icon-item"><i class="bi bi-geo-alt"></i> dummy</p>
-          <a class="stretched-link" href="/detailEvent"></a>
-        </div>
-      </div>
-  </div>
-  @endfor
-</div>
-</div>
+
+
+
+
+
 @endsection
