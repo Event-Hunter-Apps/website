@@ -24,6 +24,8 @@ Route::resource('events', ApiEventController::class);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/event', [ApiEventController::class, 'index']);
+    Route::post('/logout', [ApiAuthController::class, 'logout']);
 });
 
 Route::post('/register', [ApiAuthController::class, 'register']);
+Route::post('/login', [ApiAuthController::class, 'login']);

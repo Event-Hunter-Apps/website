@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Models\Event;
 class ApiEventController extends Controller
 {
@@ -14,11 +15,11 @@ class ApiEventController extends Controller
      */
     public function index()
     {
-        $response = Event::all();
-        return [
+        $events = Event::all();
+        return response([
             "message"=>"success get all events",
-            "events"=>$response,
-        ];
+            "events"=>$events,
+        ], 200);
     }
 
     /**
@@ -39,11 +40,11 @@ class ApiEventController extends Controller
      */
     public function store(Request $request)
     {
-        $response = Event::create($request->all());
-        return [
+        $event = Event::create($request->all());
+        return response([
             "message"=>"success create event",
-            "event" => $response,
-        ];
+            "event" => $event,
+        ], 200);
     }
 
     /**
@@ -54,11 +55,16 @@ class ApiEventController extends Controller
      */
     public function show($id)
     {
-        $response = Event::find($id);
-        return [
+        $event = Event::find($id);
+        if (!$event) {
+            return response([
+                "message"=>"invalid id",
+            ], 400);
+        }
+        return response([
             "message"=>"sucess get event",
-            "event"=>$response,
-        ];
+            "event"=>$event,
+        ], 200);
         
     }
 
@@ -82,13 +88,17 @@ class ApiEventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $response = Event::find($id);
-
-        $response->update($request->all());
-        return [
+        $event = Event::find($id);
+        if (!$event) {
+            return response([
+                "message"=>"invalid id",
+            ], 400);
+        }
+        $event->update($request->all());
+        return response([
             "message"=>"success update event",
-            "event"=> $response,
-        ];
+            "event"=> $event,
+        ], 200);
     }
 
     /**
@@ -99,11 +109,16 @@ class ApiEventController extends Controller
      */
     public function destroy($id)
     {
-        $response = Event::find( $id );
-        $response->delete();
-        return [
+        $event = Event::find($id);
+        if (!$event) {
+            return response([
+                "message"=>"invalid id",
+            ], 400);
+        }
+        $event->delete();
+        return response([
             "message"=>"success delete event",
-            "event"=>$response,
-        ];
+            "event"=>$event,
+        ], 200);
     }
 }
