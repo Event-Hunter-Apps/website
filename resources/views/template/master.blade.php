@@ -36,6 +36,10 @@
             transform: translateY(0);
             transition: all 0.3s ease-in-out;
         }
+        .top-banner{
+            margin-top:20rem;
+        }
+        
     </style>
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function() {

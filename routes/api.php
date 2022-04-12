@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApiEventController;
 use App\Http\Controllers\Api\ApiTiketController;
 use App\Http\Controllers\Api\ApiKategoriController;
+use App\Http\Controllers\Api\ApiAuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,9 +17,15 @@ use App\Http\Controllers\Api\ApiKategoriController;
 |
 */
 
-Route::resource('events', ApiEventController::class);
+
 Route::resource('categories', ApiKategoriController::class);
 Route::resource('tikets', ApiTiketController::class);
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::resource('events', ApiEventController::class);
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/event', [ApiEventController::class, 'index']);
+    Route::post('/logout', [ApiAuthController::class, 'logout']);
 });
+
+Route::post('/register', [ApiAuthController::class, 'register']);
+Route::post('/login', [ApiAuthController::class, 'login']);
