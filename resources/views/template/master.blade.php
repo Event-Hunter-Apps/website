@@ -37,7 +37,7 @@
             transition: all 0.3s ease-in-out;
         }
         .top-banner{
-            margin-top:20rem;
+            margin-top:12rem;
         }
         
     </style>
