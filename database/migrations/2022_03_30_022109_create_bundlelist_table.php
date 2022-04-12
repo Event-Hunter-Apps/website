@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('bundle_id');
             $table->primary(['tiket_id', 'bundle_id']);
             $table->timestamps();
+            $table->softDeletes($column = 'deleted_at', $precision = 0);
         });
     }
 

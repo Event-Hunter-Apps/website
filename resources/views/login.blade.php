@@ -31,37 +31,38 @@
 						<div class="w-100">
 							<h3 class="mb-4">Sign In</h3>
 						</div>
-							<div class="w-100">
-								
-							</div>
 						</div>
-							<form action="/login" method="POST">
+							<form action="/asam" method="POST">
 								@csrf
+								@if(session()->has('loginError')) 
+									<label class="label" for="name">{{session('loginError')}}</label>
+								@endif
 								<div class="form-group mb-3">
-									<label class="label" for="name">Username</label>
-									<input type="text" name="username" class="form-control" placeholder="Username" required>
+									<label class="label" for="name">Email</label>
+									<input type="text" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Username"  required>
 								</div>
+								@error('email')
+    								<div class="alert alert-danger">{{ $message }}</div>
+								@enderror
+
 								<div class="form-group mb-3">
 									<label class="label" for="password">Password</label>
-									<input type="password" name="password" class="form-control" placeholder="Password" required>
+									<input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" required>
 								</div>
-								<div class="form-group">
-									<button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign In</button>
-								</div>
+								@error('password')
+									<div class="alert alert-danger">{{ $message }}</div>
+								@enderror
+
+								<button type="submit" class="form-control btn btn-primary rounded px-3">Sign In</button>
 		          			</form>
 		          			<p class="text-center">Have no account? <a href="/register">Sign Up</a></p>
+							
 		       			</div>
 		      		</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
-	<script src="js/jquery.min.js"></script>
-	<script src="js/popper.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/main.js"></script>
-
 	</body>
 </html>
 

@@ -30,29 +30,51 @@
 							<div class="w-100">
 								<h3 class="mb-4">Sign Up</h3>
 							</div>
-								<div class="w-100">
-									<p class="social-media d-flex justify-content-end">
-										
-									</p>
-								</div>
+							
 			      			</div>
 							<form action="/register" method="POST">
 								@csrf
 								<div class="form-group mb-3">
-									<label class="label" for="name">Username</label>
-									<input type="text" name="username" class="form-control" placeholder="Username" required>
+									<label class="label" for="email">Email</label>
+									<input type="text" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="example@gmail.com" required>
 								</div>
+								@error('email')
+									<div class="alert alert-danger">{{ $message }}</div>
+								@enderror
+
+								<div class="form-group mb-3">
+									<label class="label" for="name">Name</label>
+									<input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" placeholder="example" required>
+								</div>
+								@error('nama')
+									<div class="alert alert-danger">{{ $message }}</div>
+								@enderror
+
+								<div class="form-group mb-3">
+									<label class="label" for="telephone">Telephone</label>
+									<input type="text" name="no_hp" class="form-control @error('no_hp') is-invalid @enderror" placeholder="08111111xxx" required>
+								</div>
+								@error('no_hp')
+									<div class="alert alert-danger">{{ $message }}</div>
+								@enderror
+
 								<div class="form-group mb-3">
 									<label class="label" for="password">Password</label>
-									<input type="password" name="password" class="form-control" placeholder="Password" required>
+									<input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" required>
 								</div>
+								@error('password')
+									<div class="alert alert-danger">{{ $message }}</div>
+								@enderror
+
 								<div class="form-group mb-3">
-									<label class="label" for="password">Verify Password</label>
-									<input type="password" name="verify_password" class="form-control" placeholder="Verify Password" required>
+									<label class="label" for="password_confirmation">Verify Password</label>
+									<input type="password" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="Verify Password" required>
 								</div>
-								<div class="form-group">
-									<button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign Up</button>
-								</div>
+								@error('password_confirmation')
+									<div class="alert alert-danger">{{ $message }}</div>
+								@enderror
+
+								<button type="submit" class="form-control btn btn-primary rounded submit px-3">Sign Up</button>
 		          			</form>
 		        		</div>
 		      		</div>

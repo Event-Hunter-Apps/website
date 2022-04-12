@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +13,7 @@ use App\Http\Controllers\EventController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::post('/asam', [AuthController::class, 'login']);
 Route::get('/', function () {
     return view('template.master');
 });
@@ -57,3 +58,7 @@ Route::get('/add2', function () {
 Route::get('/detailEvent', function () {
     return view('detailevent');
 });
+
+
+Route::post('/add2', [EventController::class, 'store']);
+Route::post('/register', [AuthController::class, 'register']);
