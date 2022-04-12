@@ -13,52 +13,65 @@ use App\Http\Controllers\AuthController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::post('/asam', [AuthController::class, 'login']);
+
 Route::get('/', function () {
     return view('template.master');
 });
 
-Route::get('/home', function () {
-    return view('landingPage');
-});
 
-Route::get('/event', [EventController::class, 'index']);
-
-Route::get('/checkout', function () {
-    return view('checkout');
-});
-
-Route::get('/cart', function () {
-    return view('cart');
-});
-
-Route::get('/category', function () {
-    return view('category');
-});
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-Route::get('/register', function () {
-    return view('register');
-});
-
-Route::get('/edit', function () {
-    return view('editwisata');
-});
-
-Route::get('/add', function () {
-    return view('tambahwisata');
-});
-Route::get('/add2', function () {
-    return view('tambahwisata2');
-});
-
-Route::get('/detailEvent', function () {
-    return view('detailevent');
-});
 
 
 Route::post('/add2', [EventController::class, 'store']);
 Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout']);
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', function () {
+        return view('login');
+    })->name('login');
+    
+    Route::get('/register', function () {
+        return view('register');
+    });
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/home', function () {
+        return view('landingPage');
+    });
+    
+    Route::get('/event', [EventController::class, 'index']);
+    
+    Route::get('/checkout', function () {
+        return view('checkout');
+    });
+    
+    Route::get('/cart', function () {
+        return view('cart');
+    });
+    
+    Route::get('/category', function () {
+        return view('category');
+    });
+    
+    Route::get('/edit', function () {
+        return view('editwisata');
+    });
+    
+    Route::get('/add', function () {
+        return view('tambahwisata');
+    });
+    Route::get('/add2', function () {
+        return view('tambahwisata2');
+    });
+    
+    Route::get('/detailEvent', function () {
+        return view('detailevent');
+    });
+});
+
+
+Route::get('/admin', function() {
+    return view('admin.sidebar');
+});

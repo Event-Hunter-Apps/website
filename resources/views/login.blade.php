@@ -32,11 +32,12 @@
 							<h3 class="mb-4">Sign In</h3>
 						</div>
 						</div>
-							<form action="/asam" method="POST">
+							<form action="/login" method="POST">
 								@csrf
 								@if(session()->has('loginError')) 
 									<label class="label" for="name">{{session('loginError')}}</label>
 								@endif
+								
 								<div class="form-group mb-3">
 									<label class="label" for="name">Email</label>
 									<input type="text" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Username"  required>

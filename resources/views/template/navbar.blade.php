@@ -32,7 +32,12 @@
               <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" style="width: 23px" alt="Avatar" />
             </button>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="defaultDropdown">
-              <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li>
+                <form action="/logout" method="POST">
+                  @csrf
+                  <button type="submit" class="dropdown-item">Log out</button>
+                </form>
+              </li>
 
             </ul>
           </div>

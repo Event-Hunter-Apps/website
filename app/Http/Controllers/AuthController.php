@@ -13,9 +13,9 @@ class AuthController extends Controller
             'email' => 'required|email:dns',
             'password' => 'required',
         ]);
+        
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-    
             return redirect()->intended('/home');
         }
     
@@ -28,6 +28,9 @@ class AuthController extends Controller
             'nama' => 'required',
             'password' => 'required|string|confirmed',
             'no_hp' => 'required|string|unique:users'
+        ],
+        [
+            'no_hp.unique' => "The phone number has already been taken.",
         ]);
 
         $user = User::create([
@@ -42,7 +45,10 @@ class AuthController extends Controller
     }
     
 
-    public function logout() {
-        
+    public function logout(Request $request) {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/login');
     }
 }

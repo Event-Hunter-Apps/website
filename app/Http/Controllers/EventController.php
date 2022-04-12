@@ -14,8 +14,9 @@ class EventController extends Controller
     public function index()
     {
         $event = Event::all();
-
-        
+        if ($event->isEmpty()) {
+            
+        }
         return view('event', [
             'events'=> $event,
         ]);
@@ -45,7 +46,7 @@ class EventController extends Controller
 
         dd($request->all());
         $validator = $request::validate([
-            
+
         ]);
     }
 
