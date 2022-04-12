@@ -18,13 +18,13 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-6 text-center mb-5">
-					<img src="images/1.png" alt="coba">
+					<img src="assets/img/1.png" alt="coba">
 				</div>
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-12 col-lg-10">
 					<div class="wrap d-md-flex">
-						<div class="img" style="background-image: url(images/tripcar.png)"></div>
+						<div class="img" style="background-image: url(assets/img/tripcar.png)"></div>
 						<div class="login-wrap p-4 p-md-5">
 						<div class="d-flex">
 							<div class="w-100">
@@ -32,8 +32,7 @@
 							</div>
 								<div class="w-100">
 									<p class="social-media d-flex justify-content-end">
-										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
-										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
+										
 									</p>
 								</div>
 			      			</div>
