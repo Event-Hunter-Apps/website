@@ -12,9 +12,6 @@
           <a class="nav-link active" aria-current="page" href="/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Bundle Ticket</a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link" href="#EVENT">Event</a>
         </li>
         <li class="nav-item">

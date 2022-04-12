@@ -37,7 +37,18 @@
             transition: all 0.3s ease-in-out;
         }
         .top-banner{
-            margin-top:12rem;
+            width:100%;
+            
+            background-size:auto;
+            margin-top:2rem ;
+            
+        }
+        .content{
+            position:relative;
+            width: 100%;
+            display: flex;
+            justify-content:space-between;
+            align-items:center;
         }
         
     </style>

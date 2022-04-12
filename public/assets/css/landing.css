@@ -25,13 +25,19 @@ body {
 }
 
 .jumbotron {
+
     min-height: 900px;
     background-size: auto;
     background-repeat: no-repeat;
     background-image: url("../img/landing.png");
-    background-position: 100%, 50%;
+    background-position: 100%, 9%;
+    
 }
-
+.top-banner{
+    width:100%;
+    margin-top:12rem;
+    
+}
 .landing-desc {
     margin-left: 200px;
 }

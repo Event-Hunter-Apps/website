@@ -3,23 +3,32 @@
 @extends('template.master')
 
 @section('body')
-
-<div class="jumbotron top-banner">
-  <div class="landing-desc">
-    <div class="col-lg-5 ">
-      <h1 > Enjoy Your</h1>
-      <h1>Vacation With Us</h1>
-      <p>Ac urna lectus scelerisque est ut ut senectus iaculis. Dignissim vitae sapien et, rhoncus nisl, aenean ullamcorper. Ipsum massa in lacus, tristique vel sed tortor euismod sed. Placerat consectetur sit gravida tortor et, amet. </p>
-      <div class="d-flex my-2">
-        <a href="/event">
-          <button class="btn btn-light me-2 px-5">Event</button>
-        </a>
-        <button class="btn btn-light me-2 px-5">City</button>
-        <button class="btn me-2 " style="background-color:#32B0C7; color:#ffffff"><i class="bi bi-search"></i></button>
+<section id="landing">
+  <div class="container-fluid px-0 top-banner">
+    <div class="container">
+      <div class="content">
+        <div class="col-lg-5 col-md-6 ">
+          <h1>Enjoy Your</h1>
+          <h1>Vacation With Us</h1>
+          <p>Book a ticket for the tour you want to go now. Because queuing just to buy tickets sucks. You can spend your time on vacation instead of queuing to buy tickets</p>
+          <div class="d-flex">
+            <a href="/event">
+              <button class="btn btn-light me-2 px-5">Event</button>
+            </a>
+            <button class="btn btn-light me-2 px-5">City</button>
+            <button class="btn me-2 " ></button>
+          </div>
+        </div>
+        <div class="imgBox position-relative">
+          <img src="assets/img/landing.png" class="img-fluid position-static" alt="">
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>
+
+
+
 
 
 
