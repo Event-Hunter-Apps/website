@@ -22,7 +22,6 @@ Route::get('/', function () {
 
 
 
-Route::post('/add2', [EventController::class, 'store']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
@@ -63,6 +62,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/add', function () {
         return view('tambahwisata');
     });
+
     Route::get('/add2', function () {
         return view('tambahwisata2');
     });
@@ -95,6 +95,16 @@ Route::controller(CityController::class)->prefix("/admin/cities")->group( functi
     Route::get('/create', 'create');
     Route::post('/create', 'store');
     Route::get('/{id}', 'show');
+    Route::get('/{id}/edit', 'edit');
+    Route::put('/{id}/update', 'update');
+    Route::delete('/{id}', 'destroy');
+});
+
+Route::controller(EventController::class)->prefix("/admin/events")->group( function () {
+    Route::get('/', 'indexAdmin');
+    Route::get('/create', 'create');
+    Route::post('/create', 'store');
+    Route::get('/{id}', 'showAdmin');
     Route::get('/{id}/edit', 'edit');
     Route::put('/{id}/update', 'update');
     Route::delete('/{id}', 'destroy');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Event;
+use App\Models\City;
 class EventController extends Controller
 {
     /**
@@ -22,6 +23,17 @@ class EventController extends Controller
         ]);
     }
 
+    public function indexAdmin()
+    {
+        $events = Event::all();
+        if ($events->isEmpty()) {
+          
+        }
+        return view('admin2.events', [
+            'events'=> $events,
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,9 +41,15 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('tambahwisata2', [
+
+        $cities = City::all();
+        if ($cities->isEmpty()) {
+
+        }
+        return view('admin2.formEvent', [
             "method" => "POST",
-            "action" => "admin/events/create"
+            "action" => "admin/events/create",
+            "cities" => $cities
         ]);
     }
 
@@ -44,18 +62,22 @@ class EventController extends Controller
     public function store(Request $request)
     {
 
-        dd($request->all());
-        $validator = $request::validate([
+        // dd($request->all());
+        $validator = $request->validate([
             'nama'=>'required|string',
             'deskripsi' => 'required|string',
             'tanggal_mulai' => 'required',
             'tanggal_berakhir' => 'required',
             'waktu_event' => 'required|string',
-            'lokasi' => 'required'
+            'lokasi' => 'required',
+            'kota' => 'required'
         ]);
 
-        $lokasi = $validator['nama'].", ".$validator['nama'];
+        $lokasi = $validator['lokasi'].", ".$validator['kota'];
+
+        // dd($lokasi);
         $event = Event::create([
+            'user_id'=>3,
             'nama'=>$validator['nama'],
             'deskripsi' => $validator['deskripsi'],
             'tanggal_mulai' => $validator['tanggal_mulai'],

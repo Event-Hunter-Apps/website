@@ -1,7 +1,7 @@
 @extends('admin2.sidebar')
 
 @section('list')
-<div class="row mb-4 pb-5 mx-5">
+<div class="row mb-4 pb-5 mx-3">
     <div class="d-flex justify-content-between">
         <a  href="/admin/cities/create"><button class="btn btn-primary mb-2">Create City</button></a>
         @if(session()->has('msg'))

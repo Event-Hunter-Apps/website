@@ -4,7 +4,6 @@
     <h2 class="text-center mb-4">{{ $title }} City</h2>
     <form class="row g-3" method="POST" action="/{{ $action }}">
         @csrf
-        
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Nama</label>
             <div class="col-sm-10">

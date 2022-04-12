@@ -1,7 +1,13 @@
 @extends('admin2.sidebar')
 
 @section('list')
-<div class="row  mb-4 pb-5 my-5">
+<div class="row mb-4 pb-5 mx-3">
+  <div class="d-flex justify-content-between">
+    <a  href="/admin/events/create"><button class="btn btn-primary mb-2">Create Event</button></a>
+    @if(session()->has('msg'))
+        <div class="alert alert-success" role="alert">{{ session('msg') }}</div>
+    @endif
+</div>
   @if(isset($events))
 
   @foreach ($events as $event) 
@@ -17,7 +23,7 @@
         <p class="icon-item"><i class="bi bi-clock"></i> {{$event->waktu_event}}</p>
         <p class="icon-item"><i class="bi bi-geo-alt"></i> {{$event->lokasi}}</p>
       </div>
-      <a class="stretched-link" href=""></a>
+      <a class="stretched-link" href="{{$event->id}}"></a>
     </div>
   </div>
   @endforeach
