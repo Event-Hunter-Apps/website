@@ -14,9 +14,7 @@
         <li class="nav-item">
           <a class="nav-link" href="#EVENT">Event</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#TOURIST_SPOT">Tourist Spot</a>
-        </li>
+
       </ul>
       <ul class="navbar-nav ms-4">
         <li class="nav-item">
