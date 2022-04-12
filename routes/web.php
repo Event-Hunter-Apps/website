@@ -50,7 +50,10 @@ Route::get('/edit', function () {
 Route::get('/add', function () {
     return view('tambahwisata');
 });
+Route::get('/add2', function () {
+    return view('tambahwisata2');
+});
 
-Route::get('/detailEvent', function() {
+Route::get('/detailEvent', function () {
     return view('detailevent');
 });

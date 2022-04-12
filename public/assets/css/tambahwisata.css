@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 * {
     margin: 0;
     padding: 0;
@@ -10,10 +10,9 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     overflow-x: hidden;
 }
-
 
 /* img {
     max-width: 100%;
@@ -43,12 +42,16 @@ body {
     height: 55px;
     border-radius: 50%;
     border: none;
-    background-color: #57C2B8;
-    /* background-color: transparent;
-    border-color: transparent; */
+    background-color: #57c2b8;
     position: relative;
     left: 272px;
     bottom: 30px;
+    transition: all 0.5s;
+}
+
+.container .add-img-tambah-wisata:hover {
+    color: #ffffff;
+    background: #00bdaa;
 }
 
 @media screen and (max-width: 996px) {
@@ -59,7 +62,7 @@ body {
 
 .preview-pic-tambah-wisata {
     /* margin-top: 10; */
-    background-color: #E5E5E5;
+    background-color: #e5e5e5;
     width: 300px;
     height: 300px;
     border-radius: 15px;
@@ -68,7 +71,6 @@ body {
     -ms-flex-positive: 1;
     flex-grow: 1;
 }
-
 
 /* .preview-tambah-wisata .preview-pic-tambah-wisata::before {
     position: absolute;
@@ -105,7 +107,7 @@ body {
 .preview-thumbnail-tambah-wisata.nav-tabs li a {
     padding: 0;
     margin: 0;
-    background-color: #E5E5E5;
+    background-color: #e5e5e5;
 }
 
 .preview-thumbnail-tambah-wisata.nav-tabs li:last-of-type {
@@ -128,8 +130,8 @@ body {
     width: 100%;
     -webkit-animation-name: opacity;
     animation-name: opacity;
-    -webkit-animation-duration: .3s;
-    animation-duration: .3s;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
 }
 
 .card-tambah-wisata {
@@ -179,8 +181,9 @@ input[type="date"] {
     padding: 2 10;
     text-align: center;
     border-radius: 25px;
-    border: 1px solid #57C2B8;
+    border: 1px solid #57c2b8;
     cursor: pointer;
+    outline: none;
 }
 
 input[type="time"] {
@@ -189,14 +192,15 @@ input[type="time"] {
     padding: 2 10;
     text-align: center;
     border-radius: 25px;
-    border: 1px solid #57C2B8;
+    border: 1px solid #57c2b8;
     cursor: pointer;
+    outline: none;
 }
 
 .line-date-tambah-wisata {
     content: "";
     position: absolute;
-    background-color: #57C2B8;
+    background-color: #57c2b8;
     height: 2px;
     width: 25px;
     margin: 18 18;
@@ -205,7 +209,7 @@ input[type="time"] {
 .line-time-tambah-wisata {
     content: "";
     position: absolute;
-    background-color: #57C2B8;
+    background-color: #57c2b8;
     height: 2px;
     width: 25px;
     margin: 18 18;
@@ -219,7 +223,8 @@ input[type="time"] {
     padding-top: 7px;
     padding-bottom: 7px;
     border-radius: 25px;
-    border: 1px solid #57C2B8;
+    border: 1px solid #57c2b8;
+    outline: none;
 }
 
 .col-position-tambah-wisata img {
@@ -240,7 +245,7 @@ input[type="time"] {
     padding-right: 30px;
     padding-top: 2px;
     padding-bottom: 2px;
-    background-color: #F0F0F0;
+    background-color: #f0f0f0;
     border-radius: 25px;
     font-size: medium;
 }
@@ -250,7 +255,6 @@ input[type="time"] {
     left: 20px;
     cursor: pointer;
 }
-
 
 /* .tags-tambah-wisata .tag-add-tambah-wisata {
     background-color: #F0F0F0;
@@ -283,7 +287,7 @@ input[type="time"] {
     font-size: large;
     margin-top: 10px;
     margin-bottom: 5px;
-    border: 1px solid #57C2B8;
+    border: 1px solid #57c2b8;
     border-radius: 25px;
     width: 200px;
     position: relative;
@@ -309,7 +313,9 @@ input[type="time"] {
     overflow-y: scroll;
 }
 
-.select-box-tambah-wisata .option-container-tambah-wisata.active+.selected-tambah-wisata::after {
+.select-box-tambah-wisata
+    .option-container-tambah-wisata.active
+    + .selected-tambah-wisata::after {
     transform: rotateX(180deg);
     top: -17px;
 }
@@ -320,7 +326,8 @@ input[type="time"] {
     border-radius: 0 8px 8px 0;
 }
 
-.select-box-tambah-wisata .option-container-tambah-wisata::-webkit-scrollbar-thumb {
+.select-box-tambah-wisata
+    .option-container-tambah-wisata::-webkit-scrollbar-thumb {
     width: 8px;
     background: #8a8a8a;
     border-radius: 0 8px 8px 0;
@@ -334,7 +341,7 @@ input[type="time"] {
 
 .select-box-tambah-wisata .option-tambah-wisata:hover {
     color: #ffffff;
-    background: #57C2B8;
+    background: #57c2b8;
 }
 
 .select-box-tambah-wisata .option-tambah-wisata .radio {
@@ -366,25 +373,40 @@ input[type="time"] {
     font-size: 25px;
 }
 
-.border-description-tambah-wisata {
-    /* height: 120px; */
+/* .border-description-tambah-wisata {
     margin-top: 15px;
     font-size: 12px;
     border: 1px solid #57C2B8;
     border-radius: 20px;
     padding: 20px 30px;
+} */
+
+.description-title-tambah-wisata textarea {
+    border-color: #57c2b8;
+    width: 100%;
+    height: 150px;
+    outline: none;
+    border-radius: 20px;
+    resize: none;
+    padding: 20px 30px;
+    font-size: 12px;
+    text-align: left;
 }
 
 .term-cond-title-tambah-wisata b {
     font-size: 25px;
 }
 
-.border-term-cond-tambah-wisata {
-    margin-top: 15px;
-    font-size: 12px;
-    border: 1px solid #57C2B8;
+.term-cond-title-tambah-wisata textarea {
+    border-color: #57c2b8;
+    width: 100%;
+    height: 230px;
+    outline: none;
     border-radius: 20px;
+    resize: none;
     padding: 20px 30px;
+    font-size: 12px;
+    text-align: left;
 }
 
 .btn-disc-save-tambah-wisata button {
@@ -396,27 +418,27 @@ input[type="time"] {
     margin-bottom: 60px;
     border-radius: 15px;
     border: none;
+    transition: all 0.4s;
 }
 
 .btn-disc-save-tambah-wisata .save-tambah-wisata {
     color: white;
-    background: #57C2B8;
+    background: #57c2b8;
 }
 
 .btn-disc-save-tambah-wisata .save-tambah-wisata:hover {
-    color: #57C2B8;
+    color: #57c2b8;
     background: #c6fcf5;
 }
 
 .btn-disc-save-tambah-wisata .discard-tambah-wisata {
-    color: #C72429;
+    color: #c72429;
 }
 
 .btn-disc-save-tambah-wisata .discard-tambah-wisata:hover {
     color: white;
-    background: #C72429;
+    background: #c72429;
 }
-
 
 /* 
 @-webkit-keyframes opacity {
@@ -444,6 +466,5 @@ input[type="time"] {
         transform: scale(1);
     }
 } */
-
 
 /*# sourceMappingURL=style.css.map */
