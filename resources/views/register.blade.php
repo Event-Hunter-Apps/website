@@ -51,7 +51,7 @@
 								@enderror
 
 								<div class="form-group mb-3">
-									<label class="label" for="telephone">Telephone</label>
+									<label class="label" for="telephone">Phone Number</label>
 									<input type="text" name="no_hp" class="form-control @error('no_hp') is-invalid @enderror" placeholder="08111111xxx" required>
 								</div>
 								@error('no_hp')

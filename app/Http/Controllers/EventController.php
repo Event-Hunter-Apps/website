@@ -14,8 +14,9 @@ class EventController extends Controller
     public function index()
     {
         $event = Event::all();
-
-        
+        if ($event->isEmpty()) {
+            
+        }
         return view('event', [
             'events'=> $event,
         ]);
@@ -30,7 +31,7 @@ class EventController extends Controller
     {
         return view('tambahwisata2', [
             "method" => "POST",
-            "action" => "/add2"
+            "action" => "admin/events/create"
         ]);
     }
 
@@ -45,8 +46,25 @@ class EventController extends Controller
 
         dd($request->all());
         $validator = $request::validate([
-            
+            'nama'=>'required|string',
+            'deskripsi' => 'required|string',
+            'tanggal_mulai' => 'required',
+            'tanggal_berakhir' => 'required',
+            'waktu_event' => 'required|string',
+            'lokasi' => 'required'
         ]);
+
+        $lokasi = $validator['nama'].", ".$validator['nama'];
+        $event = Event::create([
+            'nama'=>$validator['nama'],
+            'deskripsi' => $validator['deskripsi'],
+            'tanggal_mulai' => $validator['tanggal_mulai'],
+            'tanggal_berakhir' => $validator['tanggal_berakhir'],
+            'waktu_event' => $validator['waktu_event'],
+            'lokasi' => $lokasi
+        ]);
+        
+        return redirect('admin/events')->with('msg', 'success');
     }
 
     /**
@@ -57,7 +75,7 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        
+     
     }
 
     /**
@@ -68,7 +86,15 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $event = Event::find($id);
+        if ($event->isEmpty()) {
+            redirect('/admin/events')->with('msg', 'invalid id');
+        }
+        return view('tambahwisata2', [
+            "method" => "PUT",
+            "action" => "admin/events/$id/edit",
+            "event" => $event
+        ]);
     }
 
     /**
@@ -80,7 +106,12 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $event = Event::find($id);
+        if ($event->isEmpty()) {
+            redirect('/admin/events')->with('msg', 'invalid id');
+        }
+        $event->update($request->all());
+        rediect('/admin/events')->with('msg', 'berhasil');
     }
 
     /**
@@ -91,6 +122,12 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $event = Event::find($id);
+        if ($event->isEmpty()) {
+            redirect('/admin/events')->with('msg', 'invalid id');
+        }
+        $event->delete();
+
+        return redirect('/admin/events')->with('msg', 'Delete Berhasil');
     }
 }
