@@ -25,10 +25,17 @@
             </svg>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" style="width: 23px" alt="Avatar" />
-          </a>
+
+        <li>
+          <div class="btn-group">
+            <button class="nav-link btn btn-link dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+              <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" style="width: 23px" alt="Avatar" />
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="defaultDropdown">
+              <li><a class="dropdown-item" href="#">Logout</a></li>
+
+            </ul>
+          </div>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
