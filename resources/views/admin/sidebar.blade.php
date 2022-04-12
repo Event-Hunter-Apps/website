@@ -7,26 +7,26 @@
             <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start " id="menu">
                     <li class="nav-item">
-                        <a href="#" class="nav-link active align-middle px-0 text-white">
+                        <a href="#" class="nav-link active align-middle px-0 text-white" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
                             <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link align-middle px-0 text-white">
+                        <a href="#" class="nav-link  align-middle px-0 text-white" id="users-tab" data-bs-toggle="tab" data-bs-target="#users" type="button" role="tab" aria-controls="users" aria-selected="false">
                             <i class="fs-4 bi-people-fill"></i> <span class="ms-1 d-none d-sm-inline">Users</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link align-middle px-0 text-white">
+                        <a href="#" class="nav-link align-middle px-0 text-white" id="events-tab" data-bs-toggle="tab" data-bs-target="#events" type="button" role="tab" aria-controls="events" aria-selected="false">
                             <i class="fs-4 bi-cart"></i> <span class="ms-1 d-none d-sm-inline">Events</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link align-middle px-0 text-white">
+                        <a href="#" class="nav-link align-middle px-0 text-white" id="cities-tab" data-bs-toggle="tab" data-bs-target="#cities" type="button" role="tab" aria-controls="cities" aria-selected="false">
                             <i class="fs-4 bi-building"></i> <span class="ms-1 d-none d-sm-inline">Cities</span>
                         </a>
                     </li>
-                    
+
                 </ul>
                 <hr>
                 <div class="dropdown pb-4">
@@ -46,30 +46,11 @@
                 </div>
             </div>
         </div>
-        <div class="col py-3">
-            <div class="row  mb-4 pb-5 my-5">
-                @if(isset($events))
-            
-                @foreach ($events as $event) 
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4 mb-lg-0">
-                  <!-- Card-->
-                  <div class="card rounded shadow-sm border-0 mb-4">
-                    <img src="./assets/img/jakarta.png" alt="" class="img-fluid d-block">
-                    <div class="card-body">
-                      <h5> <a href="#" class="text-dark"></a>{{$event->nama}}</h5>
-                      <p class="small text-muted font-italic">Starting from</p>
-                      <p><b>Rp {{$event->deskripsi}}</b></p>
-                      <p class="icon-item"><i class="bi bi-calendar"></i> {{$event->tanggal_mulai}}</p>
-                      <p class="icon-item"><i class="bi bi-clock"></i> {{$event->waktu_event}}</p>
-                      <p class="icon-item"><i class="bi bi-geo-alt"></i> {{$event->lokasi}}</p>
-                    </div>
-                    <a class="stretched-link" href=""></a>
-                  </div>
-                </div>
-                @endforeach
-            
-                @endif
-              </div>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">HOME</div>
+            <div class="tab-pane fade" id="users" role="tabpanel" aria-labelledby="users-tab">USERS</div>
+            <div class="tab-pane fade" id="events" role="tabpanel" aria-labelledby="events-tab">EVENTS</div>
+            <div class="tab-pane fade" id="cities" role="tabpanel" aria-labelledby="cities-tab">EVENTS</div>
         </div>
     </div>
 </div>
