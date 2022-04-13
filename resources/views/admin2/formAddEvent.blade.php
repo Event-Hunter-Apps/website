@@ -4,7 +4,7 @@
 <head>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>\
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,8 +20,9 @@
 <body>
     <div class="container">
         <h1><b>Form Add Event</b></h1>
-        <form method="POST" action="/{{ $action }}">
+        <form method="POST" action="/{{ $action }}" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="_method" value="{{ $method }}" />
             <div class="card-tambah-wisata">
                 <div class="wrapper-tambah-wisata row">
                     <div class="preview-tambah-wisata text-center justify-content-center" id="preview-tambah-wisata">
@@ -33,7 +34,7 @@
                     <div class="details-tambah-wisata">
                         <div class="col-position-tambah-wisata">
                             <label for="">Event Name</label><br>
-                            <input class="@error('nama') is-invalid @enderror" type="text" name="nama" id="pos-edit" value="{{ isset($event)?$event->nama:'' }}">
+                            <input class="@error('nama') is-invalid @enderror" type="text" name="nama" id="pos-edit">
                         </div>
                         @error('nama')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -41,18 +42,25 @@
                         <br>
 
                         <div class="col-position-tambah-wisata">
+                            <label for="">Price</label><br>
+                            <input class="@error('harga') is-invalid @enderror" type="text" name="harga" id="pos-edit">
+                        </div>
+                        @error('harga')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                        <br>
+
+                        <div class="col-position-tambah-wisata">
                             <label for="">Date</label><br>
                         </div>
-
-
                         <div class="date-input-tambah-wisata">
-                            <input class="@error('tanggal_mulai') is-invalid @enderror" type="date" name="tanggal_mulai" id="date1" value="{{ isset($event)?$event->tanggal_mulai:'' }}">
+                            <input class="@error('tanggal_mulai') is-invalid @enderror" type="date" name="tanggal_mulai" id="date1">
                             @error('tanggal_mulai')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
 
 
-                            <input class="@error('tanggal_berakhir') is-invalid @enderror" type="date" name="tanggal_berakhir" id="date2" style="margin-left: 65px;" value="{{ isset($event)?$event->tanggal_berakhir:'' }}">
+                            <input class="@error('tanggal_berakhir') is-invalid @enderror" type="date" name="tanggal_berakhir" id="date2" style="margin-left: 65px;">
                             @error('tanggal_berakhir')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -63,7 +71,7 @@
                             <label for="">Time</label><br>
                         </div>
                         <div class="time-input-tambah-wisata">
-                            <input class="@error('waktu_event') is-invalid @enderror" type="time" name="waktu_event" id="time1" value="{{ isset($event)?$event->waktu_event:'' }}">
+                            <input class="@error('jam_buka') is-invalid @enderror" type="time" name="jam_buka" id="time1">
                             @error('waktu_event')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -77,7 +85,7 @@
 
                         <div class="col-position-tambah-wisata">
                             <label for="">Location</label><br>
-                            <input class="@error('lokasi') is-invalid @enderror" type="text" name="lokasi" id="pos-edit" value="{{ isset($event)?$event->lokasi:'' }}">
+                            <input class="@error('lokasi') is-invalid @enderror" type="text" name="lokasi" id="pos-edit">
                             @error('lokasi')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -116,17 +124,19 @@
 
 
                 <input type="file" id="image_upload" name="image_upload" accept="image/png, image/jpg">
+
+                
                 <br>
                 <div class="description-title-tambah-wisata">
                     <b>Description</b><br>
-                    <textarea class="@error('deskripsi') is-invalid @enderror" name="deskripsi" id="text-desc-tambah-wisata" cols="30" rows="10" required>{{ isset($event)?$event->deskripsi:'' }}</textarea>
+                    <textarea class="@error('deskripsi') is-invalid @enderror" name="deskripsi" id="text-desc-tambah-wisata" cols="30" rows="10" required></textarea>
                 </div>
                 @error('deskripsi')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
             </div>
 
-            <div class="tambah-kategori-wisata">
+            {{-- <div class="tambah-kategori-wisata">
                 <div class="title-tambah-kategori-wisata">
                     <b>Add Event Category</b><br><br>
                     <div class="col-position-tambah-wisata">
@@ -139,7 +149,7 @@
                     @enderror
                     <br>
                 </div>
-            </div>
+            </div> --}}
 
             <div class="tambah-tiket-wisata" style="margin-top: 50px;">
 
@@ -148,9 +158,9 @@
                     <label for="">Category ID</label><br>
                     <select class="form-select @error('kategori_id') is-invalid @enderror" name="kategori_id" style="width:200px; height:45px; padding:5 10; border-radius:25px; border: 1px solid #57C2B8; " aria-label="Default select example">
                         <option selected>-</option>
-                        <!-- @foreach ($cities as $city)
-                        <option value="{{$city->name}}">{{$city->name}}</option>
-                        @endforeach -->
+                        @foreach ($categories as $category)
+                        <option value="{{$category->id}}">{{$category->nama}}</option>
+                        @endforeach
 
                     </select>
                     @error('kategori_id')
@@ -161,7 +171,7 @@
                     <br>
                     <div class="col-position-tambah-wisata">
                         <label for="">Ticket Name</label><br>
-                        <input class="@error('nama_tiket') is-invalid @enderror" type="text" name="nama_tiket" id="pos-edit" value="{{ isset($event)?$event->nama_tiket:'' }}">
+                        <input class="@error('nama_tiket') is-invalid @enderror" type="text" name="nama_tiket" id="pos-edit">
                     </div>
                     @error('nama_tiket')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -169,7 +179,7 @@
                     <br>
                     <div class="col-position-tambah-wisata">
                         <label for="">Ticket Price</label><br>
-                        <input class="@error('harga_tiket') is-invalid @enderror" type="text" name="harga_tiket" id="pos-edit" value="{{ isset($event)?$event->harga_tiket:'' }}">
+                        <input class="@error('harga_tiket') is-invalid @enderror" type="text" name="harga_tiket" id="pos-edit">
                     </div>
                     @error('harga_tiket')
                     <div class="alert alert-danger">{{ $message }}</div>

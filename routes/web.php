@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\TiketController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -92,6 +93,16 @@ Route::controller(EventController::class)->prefix("/admin/events")->group( funct
     Route::delete('/{id}', 'destroy');
 });
 
-Route::controller(TiketController::class)->prefix("evetns/{id}")->group( function () {
+Route::controller(TiketController::class)->prefix("/admin/events/{event_id}/tikets")->group( function () {
+    Route::get('/', 'index');
+    Route::get('/create', 'create');
+    Route::post('/create', 'store');
+    Route::get('/{tiket_id}', 'show');
+    Route::get('/{tiket_id}/edit', 'edit');
+    Route::put('/{tiket_id}', 'update');
+    Route::delete('/{tiket_id}', 'destroy');
+});
 
+Route::controller(CategoryController::class)->prefix("admin/categories")->group( function() {
+    Route::post('/create', 'store');
 });
