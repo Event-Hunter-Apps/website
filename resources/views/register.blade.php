@@ -22,13 +22,25 @@
 				</div>
 			</div>
 			<div class="row justify-content-center">
-				<div class="col-md-12 col-lg-10">
+				<div class="co=lg-12 col-lg-12">
 					<div class="wrap d-md-flex">
-						<div class="img" style="background-image: url(assets/img/tripcar.png)"></div>
+						<div class="img" style="background-image: url(assets/img/tripcar.png)" ></div>
 						<div class="login-wrap p-4 p-md-5">
 						<div class="d-flex">
 							<div class="w-100">
-								<h3 class="mb-4">Sign Up</h3>
+								<h3 class="mb-3">Sign Up</h3>
+								<div class="form-check form-check-inline mb-3">
+									<input class="form-check-input" type="radio" name="flexRadioDefault">
+									<label class="form-check-label" for="flexRadioDefault1">
+										Customer
+									</label>
+									</div>
+									<div class="form-check form-check-inline">
+									<input class="form-check-input " type="radio" name="flexRadioDefault" checked>
+									<label class="form-check-label " for="flexRadioDefault2">
+										Event Organizer
+									</label>
+								</div>
 							</div>
 							
 			      			</div>
