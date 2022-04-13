@@ -15,16 +15,16 @@ return new class extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->string('name');
             $table->timestamps();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
         });
 
         DB::table("roles")->insert(
             array(
-                array("name" => "Admin", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
-                array("name" => "Event Organizer", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
-                array("name" => "Customer", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
+                array('name' => "Admin", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
+                array('name' => "Event Organizer", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
+                array('name' => "Customer", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
             )
         );
     }

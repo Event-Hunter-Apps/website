@@ -20,8 +20,12 @@ return new class extends Migration
             $table->longText('deskripsi');
             $table->date('tanggal_mulai');
             $table->date('tanggal_berakhir');
-            $table->string('waktu_event');
+            $table->string('jam_buka');
+            $table->string('jam_tutup');
             $table->string('lokasi');
+            $table->string('kota');
+            $table->unsignedInteger('harga');
+            $table->string('image');
             $table->timestamps();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
         });

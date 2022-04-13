@@ -12,7 +12,7 @@
           <h1>Vacation With Us</h1>
           <p>Book a ticket for the tour you want to go now. Because queuing just to buy tickets sucks. You can spend your time on vacation instead of queuing to buy tickets</p>
           <div class="d-flex">
-            <a href="/event">
+            <a href="/events">
               <button class="btn btn-light me-2 px-5">Event</button>
             </a>
           </div>

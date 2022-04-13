@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
     });
     
     Route::get('/events', [EventController::class, 'index']);
-
+    Route::get('/events/{id}', [EventController::class, 'show']);
     Route::get('/checkout', function () {
         return view('checkout');
     });
@@ -90,4 +90,8 @@ Route::controller(EventController::class)->prefix("/admin/events")->group( funct
     Route::get('/{id}/edit', 'edit');
     Route::put('/{id}', 'update');
     Route::delete('/{id}', 'destroy');
+});
+
+Route::controller(TiketController::class)->prefix("evetns/{id}")->group( function () {
+
 });
