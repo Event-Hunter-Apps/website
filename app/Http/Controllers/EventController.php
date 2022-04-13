@@ -94,10 +94,7 @@ class EventController extends Controller
         ]);
         // dd("test");
         if($request->hasFile('image_upload')) {
-            $dest_path = 'public/images/events';
-            $image = $request->file('image_upload');
-            $image_name = time().'-'.$image->getClientOriginalName();
-            $path = $image->storeAs($dest_path, $image_name);
+            $validator["image_upload"] = $request->file('image_upload')->store('images');
 
             // dd($dest_path, $path);
         }
@@ -114,7 +111,7 @@ class EventController extends Controller
             'lokasi' => $validator['lokasi'],
             'kota' => $validator['kota'],
             'harga' => $validator['harga'],
-            'image' => $path
+            'image' => $validator["image_upload"]
         ]);
         
         $tiket = Tiket::create([

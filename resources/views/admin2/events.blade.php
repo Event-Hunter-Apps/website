@@ -14,7 +14,7 @@
   <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4 mb-lg-0">
     <!-- Card-->
     <div class="card rounded shadow-sm border-0 mb-4">
-      <img src="{{asset('storage/'.$event->image)}}" alt="" class="img-fluid d-block">
+      <img src="{{asset("storage/".$event->image)}}" alt="" class="img-fluid d-block">
       <div class="card-body">
         <h5> <a href="#" class="text-dark"></a>{{$event->nama}}</h5>
         <p class="small text-muted font-italic">Starting from</p>
