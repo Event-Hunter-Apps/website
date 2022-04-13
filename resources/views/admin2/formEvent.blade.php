@@ -23,9 +23,8 @@
             <div class="card-tambah-wisata">
                 <div class="wrapper-tambah-wisata row">
                     <div class="preview-tambah-wisata">
-                        <div class="preview-pic-tambah-wisata tab-content">
-                            
-                        </div>
+                        
+
                     </div>
 
                     {{-- form mulai --}}
@@ -53,7 +52,7 @@
                             @error('tanggal_mulai')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                            <span class="line-date-tambah-wisata"></span>
+                            
 
                             <input class="@error('tanggal_berakhir') is-invalid @enderror" type="date" name="tanggal_berakhir" id="date2" style="margin-left: 65px;" value="{{ isset($event)?$event->tanggal_berakhir:'' }}">
                             @error('tanggal_berakhir')
@@ -67,7 +66,7 @@
                             @error('waktu_event')
                                 <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                            <span class="line-time-tambah-wisata"></span>
+                            
                             
                             <input class="@error('jam_tutup') is-invalid @enderror" type="time" name="jam_tutup" id="time2" style="margin-left: 65px;">
                             @error('jam_tutup')
