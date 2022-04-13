@@ -50,6 +50,10 @@ body {
     vertical-align: middle;
 }
 
+.tempat-img {
+    height: 100%;
+}
+
 .container .add-img-tambah-wisata {
     padding: 0 0;
     width: 55px;
