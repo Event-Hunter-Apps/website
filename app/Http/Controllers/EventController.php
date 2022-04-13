@@ -23,7 +23,7 @@ class EventController extends Controller
             
         }
         $cities = City::all();
-        return view('event', [
+        return view('events', [
             'events'=> $events,
             'cities'=>$cities,
         ]);
@@ -103,7 +103,12 @@ class EventController extends Controller
      */
     public function show($id)
     {
-     
+        
+        $event = Event::find($id);
+   
+        return view('detailevent2', [
+            "event" => $event
+        ]);
     }
 
     /**

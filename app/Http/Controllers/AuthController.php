@@ -19,7 +19,7 @@ class AuthController extends Controller
             return redirect()->intended('/home');
         }
     
-        return back()->with('loginError', 'login fail');
+        return back()->with('loginError', 'Invalid login credentials. Please try again.');
     }
 
     public function register(Request $req) {
