@@ -14,12 +14,18 @@ class EventController extends Controller
      */
     public function index()
     {
-        $event = Event::all();
-        if ($event->isEmpty()) {
+        $events = Event::all();
+
+        if(request('search')) {
+            $events->where('title','like','%'.request('search').'%');
+        }
+        if ($events->isEmpty()) {
             
         }
+        $cities = City::all();
         return view('event', [
-            'events'=> $event,
+            'events'=> $events,
+            'cities'=>$cities,
         ]);
     }
 
@@ -77,8 +83,8 @@ class EventController extends Controller
 
         // dd($lokasi);
         $event = Event::create([
-            'user_id'=>3,
-            'nama'=>$validator['nama'],
+            'user_id'=> auth()->user()->id,
+            'nama'=> $validator['nama'],
             'deskripsi' => $validator['deskripsi'],
             'tanggal_mulai' => $validator['tanggal_mulai'],
             'tanggal_berakhir' => $validator['tanggal_berakhir'],
@@ -109,13 +115,12 @@ class EventController extends Controller
     public function edit($id)
     {
         $event = Event::find($id);
-        if ($event->isEmpty()) {
-            redirect('/admin/events')->with('msg', 'invalid id');
-        }
-        return view('tambahwisata2', [
+        $cities = City::all();
+        return view('admin2.formEvent', [
             "method" => "PUT",
-            "action" => "admin/events/$id/edit",
-            "event" => $event
+            "action" => "admin/events/$id",
+            "event" => $event,
+            "cities" => $cities
         ]);
     }
 
@@ -129,11 +134,11 @@ class EventController extends Controller
     public function update(Request $request, $id)
     {
         $event = Event::find($id);
-        if ($event->isEmpty()) {
-            redirect('/admin/events')->with('msg', 'invalid id');
-        }
+        // if ($event->isEmpty()) {
+        //     redirect('/admin/events')->with('msg', 'invalid id');
+        // }
         $event->update($request->all());
-        rediect('/admin/events')->with('msg', 'berhasil');
+        return redirect('/admin/events')->with('msg', 'berhasil');
     }
 
     /**

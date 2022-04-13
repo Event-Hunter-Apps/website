@@ -19,6 +19,14 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
         });
+
+        DB::table("roles")->insert(
+            array(
+                array("name" => "Admin", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
+                array("name" => "Event Organizer", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
+                array("name" => "Customer", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
+            )
+        );
     }
 
     /**

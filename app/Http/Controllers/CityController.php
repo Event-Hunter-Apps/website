@@ -75,13 +75,11 @@ class CityController extends Controller
     public function edit($id)
     {
         $city = City::find($id);
-        if ($city->isEmpty()) {
-
-        }
+       
         return view('admin2.formCity', [
             "title" => "Edit",
-            "method" => "POST",
-            "action" => "admin/cities/$id/edit",
+            "method" => "PUT",
+            "action" => "admin/cities/$id",
             "city" => $city,
         ]);
     }
@@ -96,11 +94,11 @@ class CityController extends Controller
     public function update(Request $request, $id)
     {
         $city = City::find($id);
-        if ($city->isEmpty()) {
-            redirect('/admin/cities')->with('msg', 'invalid id');
-        }
+        // if ($city->isEmpty()) {
+        //     redirect('/admin/cities')->with('msg', 'invalid id');
+        // }
         $city->update($request->all());
-        return rediect('/admin/cities')->with('msg', 'berhasil');
+        return redirect('/admin/cities')->with('msg', 'berhasil');
     }
 
     /**
@@ -115,6 +113,6 @@ class CityController extends Controller
       
         $city->delete();
 
-        return rediect('/admin/cities')->with('msg', 'Deleted');
+        return redirect('/admin/cities')->with('msg', 'Deleted');
     }
 }

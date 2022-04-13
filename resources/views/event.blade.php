@@ -3,15 +3,21 @@
 @section('body')
 <div class="container py-5 product-list">
   <div class="navbar justify-content-between">
-    <h2>Tourist Spot in Jakarta</h2>
-    <form class="form-inline d-flex filter">
-      <select class="form-select" aria-label="Default select example">
+ 
+    <h2>Tourist Spot {{isset($search)?$search->name:''}}</h2>
+  
+    <form class="form-inline d-flex filter" action="/events">
+      <select name="sCity" class="form-select" aria-label="Default select example">
         <option selected>all city</option>
-        <option value="1">Jakarta</option>
-        <option value="2">Bandung</option>
-        <option value="3">Surabaya</option>
+
+        @if(isset($cities))
+        @foreach ($cities as $city)
+        <option value="{{$city->id}}">{{$city->name}}</option>
+        @endforeach
+        @endif
+
       </select>
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
     </form>
   </div>

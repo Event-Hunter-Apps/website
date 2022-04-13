@@ -41,8 +41,8 @@ Route::middleware('auth')->group(function () {
         return view('landingPage');
     });
     
-    Route::get('/event', [EventController::class, 'index']);
-    
+    Route::get('/events', [EventController::class, 'index']);
+
     Route::get('/checkout', function () {
         return view('checkout');
     });
@@ -72,31 +72,13 @@ Route::middleware('auth')->group(function () {
     });
 });
 
-Route::get('/admin/home', function() {
-    return view('admin2.home');
-});
-Route::get('/admin/events', function() {
-    return view('admin2.event');
-});
-Route::get('/admin/users', function() {
-    return view('admin2.users');
-});
-Route::get('/admin/cities', function() {
-    return view('admin2.cities');
-});
-
-Route::get('/admin/sidebar', function() {
-    return view('admin.sidebar');
-});
-
-
 Route::controller(CityController::class)->prefix("/admin/cities")->group( function () {
     Route::get('/', 'index');
     Route::get('/create', 'create');
     Route::post('/create', 'store');
     Route::get('/{id}', 'show');
     Route::get('/{id}/edit', 'edit');
-    Route::put('/{id}/update', 'update');
+    Route::put('/{id}', 'update');
     Route::delete('/{id}', 'destroy');
 });
 
@@ -106,6 +88,6 @@ Route::controller(EventController::class)->prefix("/admin/events")->group( funct
     Route::post('/create', 'store');
     Route::get('/{id}', 'showAdmin');
     Route::get('/{id}/edit', 'edit');
-    Route::put('/{id}/update', 'update');
+    Route::put('/{id}', 'update');
     Route::delete('/{id}', 'destroy');
 });

@@ -23,7 +23,7 @@
         <p class="icon-item"><i class="bi bi-clock"></i> {{$event->waktu_event}}</p>
         <p class="icon-item"><i class="bi bi-geo-alt"></i> {{$event->lokasi}}</p>
       </div>
-      <a class="stretched-link" href="{{$event->id}}"></a>
+      <a class="stretched-link" href="/admin/events/{{$event->id}}/edit"></a>
     </div>
   </div>
   @endforeach
