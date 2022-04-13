@@ -64,7 +64,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::get('/add2', function () {
-        return view('tambahwisata2');
+        return view('admin2.formEvent');
     });
     
     Route::get('/detailEvent', function () {

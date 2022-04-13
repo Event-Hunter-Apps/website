@@ -8,12 +8,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{$title}} Wisata</title>
+    <title>Wisata</title>
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
     <!-- <link rel="stylesheet" href="tambahwisata.css"> -->
-    <link rel="stylesheet" href="assets/css/tambahwisata.css">
+    <link rel="stylesheet" href="{{asset('assets/css/tambahwisata.css')}}">
 
 </head>
 <body>
@@ -24,32 +24,8 @@
                 <div class="wrapper-tambah-wisata row">
                     <div class="preview-tambah-wisata">
                         <div class="preview-pic-tambah-wisata tab-content">
-                            <div class="tab-pane active" id="pic-1">
-                                <!-- <img src="assets/img/Rectangle 43.png" /> -->
-                            </div>
-                            <div class="tab-pane" id="pic-2">
-                                <!-- <img src="assets/img/Rectangle 49.png" /> -->
-                            </div>
-                            <div class="tab-pane" id="pic-3">
-                                <!-- <img src="assets/img/Rectangle 50.png" /> -->
-                            </div>
+                            
                         </div>
-                        <Button class="add-img-tambah-wisata"><img src="assets/img/akar-icons_camera.svg" alt="" style="width: 40;"></Button>
-                        <ul class="preview-thumbnail-tambah-wisata nav nav-tabs">
-                            <li>
-                                <a data-target="#pic-1" data-toggle="tab"><img style="height: 60px; width: 50px; border-radius: 10px;" /></a>
-                                <Button class="rmv-btn-tambah-wisata"><img src="assets/img/radix-icons_cross-2-white.svg" alt=""></Button>
-                            </li>
-                            <li>
-                                <a data-target="#pic-2" data-toggle="tab"><img style="height: 60px; width: 50px; border-radius: 10px;" /></a>
-                                <Button class="rmv-btn-tambah-wisata"><img src="assets/img/radix-icons_cross-2-white.svg" alt=""></Button>
-                            </li>
-                            <li>
-                                <a data-target="#pic-3" data-toggle="tab"><img style="height: 60px; width: 50px; border-radius: 10px;" /></a>
-                                <Button class="rmv-btn-tambah-wisata"><img src="assets/img/radix-icons_cross-2-white.svg" alt=""></Button>
-                            </li>
-                        </ul>
-
                     </div>
 
                     {{-- form mulai --}}
