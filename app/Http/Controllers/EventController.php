@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Event;
 use App\Models\City;
+use App\Models\Kategori;
+use App\Models\Tiket;
+use Illuminate\Http\File;
+
 class EventController extends Controller
 {
     /**
@@ -49,13 +53,15 @@ class EventController extends Controller
     {
 
         $cities = City::all();
+        $categories = Kategori::all();
         if ($cities->isEmpty()) {
 
         }
-        return view('admin2.formEvent', [
+        return view('admin2.formAddEvent', [
             "method" => "POST",
             "action" => "admin/events/create",
-            "cities" => $cities
+            "cities" => $cities,
+            "categories" => $categories
         ]);
     }
 
@@ -74,12 +80,27 @@ class EventController extends Controller
             'deskripsi' => 'required|string',
             'tanggal_mulai' => 'required',
             'tanggal_berakhir' => 'required',
-            'waktu_event' => 'required|string',
+            'jam_buka' => 'required',
+            'jam_tutup' => 'required',
             'lokasi' => 'required',
-            'kota' => 'required'
+            'kota' => 'required',
+            'harga' => 'required',
+            // 'image_upload' => 'required',
+            'kategori_id' => 'required',
+            'nama_tiket' => 'required',
+            'harga_tiket' => 'required',
+            'deskripsi_tiket' => 'required',
+            'image_upload' => 'required|image|mimes:jpeg,jpg,png',
         ]);
+        // dd("test");
+        if($request->hasFile('image_upload')) {
+            $dest_path = 'public/images/events';
+            $image = $request->file('image_upload');
+            $image_name = time().'-'.$image->getClientOriginalName();
+            $path = $image->storeAs($dest_path, $image_name);
 
-        $lokasi = $validator['lokasi'].", ".$validator['kota'];
+            // dd($dest_path, $path);
+        }
 
         // dd($lokasi);
         $event = Event::create([
@@ -88,10 +109,21 @@ class EventController extends Controller
             'deskripsi' => $validator['deskripsi'],
             'tanggal_mulai' => $validator['tanggal_mulai'],
             'tanggal_berakhir' => $validator['tanggal_berakhir'],
-            'waktu_event' => $validator['waktu_event'],
-            'lokasi' => $lokasi
+            'jam_buka' => $validator['jam_buka'],
+            'jam_tutup' => $validator['jam_tutup'],
+            'lokasi' => $validator['lokasi'],
+            'kota' => $validator['kota'],
+            'harga' => $validator['harga'],
+            'image' => $path
         ]);
         
+        $tiket = Tiket::create([
+            'event_id' => $event->id,
+            'kategori_id' => $validator['kategori_id'],
+            'nama' => $validator['nama_tiket'],
+            'deskripsi' => $validator['deskripsi_tiket'],
+            'harga' => $validator['harga_tiket'],
+        ]);
         return redirect('admin/events')->with('msg', 'success');
     }
 
@@ -119,9 +151,11 @@ class EventController extends Controller
      */
     public function edit($id)
     {
+        
         $event = Event::find($id);
+        
         $cities = City::all();
-        return view('admin2.formEvent', [
+        return view('admin2.formEditEvent', [
             "method" => "PUT",
             "action" => "admin/events/$id",
             "event" => $event,
@@ -138,10 +172,20 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $event = Event::find($id);
-        // if ($event->isEmpty()) {
-        //     redirect('/admin/events')->with('msg', 'invalid id');
-        // }
+        $validator = $request->validate([
+            'nama'=>'required|string',
+            'deskripsi' => 'required|string',
+            'tanggal_mulai' => 'required',
+            'tanggal_berakhir' => 'required',
+            'jam_buka' => 'required',
+            'jam_tutup' => 'required',
+            'lokasi' => 'required',
+            'kota' => 'required',
+            'harga' => 'required',
+            'image_upload' => 'required|image|mimes:jpeg,jpg,png',
+        ]);
         $event->update($request->all());
         return redirect('/admin/events')->with('msg', 'berhasil');
     }
@@ -155,9 +199,7 @@ class EventController extends Controller
     public function destroy($id)
     {
         $event = Event::find($id);
-        if ($event->isEmpty()) {
-            redirect('/admin/events')->with('msg', 'invalid id');
-        }
+
         $event->delete();
 
         return redirect('/admin/events')->with('msg', 'Delete Berhasil');

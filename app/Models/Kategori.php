@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Kategori extends Model
 {
     use HasFactory, softDeletes;
+
+    protected $table = "kategoris";
     protected $attributes = [
         'nama'=>'unknown',
     ];

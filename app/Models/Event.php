@@ -15,8 +15,11 @@ class Event extends Model
         'deskripsi'=>'lorem ipsum',
         'tanggal_mulai'=>'01/02/2001',
         'tanggal_berakhir'=>'01/02/2001',
-        'waktu_event'=>'17.00 WIB',
+        'jam_buka'=>'12.00 AM',
+        'jam_tutup' => '12.PM',
         'lokasi'=>'unknown',
+        'harga'=>0,
+        'image'=>'-'
     ];
     protected $fillable = [
         'user_id',
@@ -24,7 +27,11 @@ class Event extends Model
         'deskripsi',
         'tanggal_mulai',
         'tanggal_berakhir',
-        'waktu_event',
+        'jam_buka',
+        'jam_tutup',
         'lokasi',
+        'harga',
+        'kota',
+        'image',
     ];
 }

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Tiket extends Model
 {
     use HasFactory, softDeletes;
+    protected $table = "tikets";
     protected $attributes = [
         'deskripsi'=>'lorem ipsum',
         'harga'=>200000,
