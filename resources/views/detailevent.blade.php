@@ -29,13 +29,13 @@
         <h1><b>Detail Event</b></h1>
         <div class="card-detail-event">
             <div class="wrapper-detail-event row">
-                <div class="preview-detail-event">
-                    <div class="preview-pic-detail-event tab-content">
-                        <div class="tab-pane active" id="pic-1"><img src="./assets/img/Rectangle 43.png" /></div>
-                        <div class="tab-pane" id="pic-2"><img src="./assets/img/Rectangle 49.png" /></div>
-                        <div class="tab-pane" id="pic-3"><img src="./assets/img/Rectangle 50.png" /></div>
-                    </div>
-                    <ul class="preview-thumbnail-detail-event nav nav-tabs">
+                <div class="preview-detail-event tab-content">
+                    <img src="./assets/img/Rectangle 43.png" height="400" />
+
+                    <!-- <div class="tab-pane" id="pic-2"><img src="./assets/img/Rectangle 49.png" /></div>
+                        <div class="tab-pane" id="pic-3"><img src="./assets/img/Rectangle 50.png" /></div> -->
+
+                    <!-- <ul class="preview-thumbnail-detail-event nav nav-tabs">
                         <li>
                             <a data-target="#pic-1" data-toggle="tab"><img src="./assets/img/denise-jans-LRWGGldq3ow-unsplash.jpg" style="height: 60px; width: 50px; border-radius: 10px;" /></a>
                         </li>
@@ -45,7 +45,7 @@
                         <li>
                             <a data-target="#pic-3" data-toggle="tab"><img src="./assets/img/denise-jans-LRWGGldq3ow-unsplash.jpg" style="height: 60px; width: 50px; border-radius: 10px;" /></a>
                         </li>
-                    </ul>
+                    </ul> -->
 
                 </div>
                 <div class="details-detail-event">
