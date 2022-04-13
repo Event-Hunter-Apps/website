@@ -22,7 +22,8 @@ body {
     margin-right: 70px;
     width: 300px;
     height: 400px;
-    background-color: white;
+    /* background-color: red; */
+    background-size: cover;
     border-radius: 7%;
     display: -webkit-box;
     display: -webkit-flex;
@@ -367,10 +368,11 @@ input[type="time"] {
 
 .description-tambah-wisata {
     margin-left: 30px;
+    margin-bottom: 30px;
 }
 
 .description-title-tambah-wisata b {
-    font-size: 25px;
+    font-size: 16px;
 }
 
 /* .border-description-tambah-wisata {
@@ -385,6 +387,31 @@ input[type="time"] {
     border-color: #57c2b8;
     width: 100%;
     height: 150px;
+    outline: none;
+    border-radius: 20px;
+    resize: none;
+    padding: 20px 30px;
+    font-size: 14px;
+    text-align: left;
+}
+.tambah-kategori-wisata {
+    margin-left: 30px;
+}
+.title-tambah-kategori-wisata b {
+    font-size: 25px;
+}
+
+.tambah-tiket-wisata {
+    margin-left: 30px;
+}
+.title-tambah-tiket-wisata b {
+    font-size: 25px;
+}
+
+.title-tambah-tiket-wisata textarea {
+    border-color: #57c2b8;
+    width: 100%;
+    height: 100px;
     outline: none;
     border-radius: 20px;
     resize: none;
@@ -438,6 +465,32 @@ input[type="time"] {
 .btn-disc-save-tambah-wisata .discard-tambah-wisata:hover {
     color: white;
     background: #c72429;
+}
+
+.btn-add-category {
+    /* float: center; */
+    width: 80px;
+    height: 40px;
+    margin-left: 15px;
+    /* margin-top: 40px;
+    margin-bottom: 60px;  */
+    border-radius: 15px;
+    border: none;
+    transition: all 0.4s;
+}
+
+.btn-add-category b {
+    font-size: 14px;
+}
+
+.btn-add-category {
+    color: white;
+    background: #57c2b8;
+}
+
+.btn-add-category:hover {
+    color: #57c2b8;
+    background: #c6fcf5;
 }
 
 /* 
