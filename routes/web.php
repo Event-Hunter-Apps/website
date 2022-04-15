@@ -5,6 +5,8 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\TiketController;
+use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +19,7 @@ use App\Http\Controllers\TiketController;
 */
 
 Route::get('/', function () {
-    return view('template.master');
+    return redirect('/login');
 });
 
 
@@ -38,12 +40,11 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/home', function () {
-        return view('landingPage');
-    });
+    Route::get('/home', [HomePageController::class, 'homepage']);
     
     Route::get('/events', [EventController::class, 'index']);
     Route::get('/events/{id}', [EventController::class, 'show']);
+    Route::get('/events/{id}/tikets', [EventController::class, 'tiket']);
     Route::get('/checkout', function () {
         return view('checkout');
     });
@@ -91,6 +92,7 @@ Route::controller(EventController::class)->prefix("/admin/events")->group( funct
     Route::get('/{id}/edit', 'edit');
     Route::put('/{id}', 'update');
     Route::delete('/{id}', 'destroy');
+    
 });
 
 Route::controller(TiketController::class)->prefix("/admin/events/{event_id}/tikets")->group( function () {
@@ -105,4 +107,8 @@ Route::controller(TiketController::class)->prefix("/admin/events/{event_id}/tike
 
 Route::controller(CategoryController::class)->prefix("admin/categories")->group( function() {
     Route::post('/create', 'store');
+});
+
+Route::controller(UserController::class)->prefix("admin/users")->group( function() {
+    Route::get('/', 'index');
 });

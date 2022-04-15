@@ -17,19 +17,10 @@ class EventController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $events = Event::all();
-
-        if(request('search')) {
-            $events->where('title','like','%'.request('search').'%');
-        }
-        if ($events->isEmpty()) {
-            
-        }
-        $cities = City::all();
+    {   
         return view('events', [
-            'events'=> $events,
-            'cities'=>$cities,
+            'events'=> Event::latest()->filter(request(['nama', 'kota']))->get(),
+            'cities'=> City::all(),
         ]);
     }
 
@@ -134,10 +125,13 @@ class EventController extends Controller
     {
         
         $event = Event::find($id);
-   
-        return view('detailevent2', [
-            "event" => $event
-        ]);
+        if ($event != null) {
+            return view('detailEvent', [
+                "title" => $event->nama,
+                "event" => $event
+            ]);
+        }
+        return redirect('events');
     }
 
     /**
@@ -200,5 +194,14 @@ class EventController extends Controller
         $event->delete();
 
         return redirect('/admin/events')->with('msg', 'Delete Berhasil');
+    }
+    
+    public function tiket($id) {
+        $tikets = Tiket::where('event_id', $id)->get();
+        $event = Event::find($id);
+        return view('eventTikets', [
+            "tikets" => $tikets,
+            "event" => $event
+        ]);
     }
 }

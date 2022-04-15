@@ -15,8 +15,8 @@ class Event extends Model
         'deskripsi'=>'lorem ipsum',
         'tanggal_mulai'=>'01/02/2001',
         'tanggal_berakhir'=>'01/02/2001',
-        'jam_buka'=>'12.00 AM',
-        'jam_tutup' => '12.PM',
+        'jam_buka'=>'12.00',
+        'jam_tutup' => '12.00',
         'lokasi'=>'unknown',
         'harga'=>0,
         'image'=>'-'
@@ -34,4 +34,19 @@ class Event extends Model
         'kota',
         'image',
     ];
+
+    public function scopeFilter($query, array $filters) {
+        
+       
+        $query->when($filters['nama'] ?? false, function($query, $nama) {
+            return $query->where('nama', 'like', '%'.$nama.'%');
+        });
+
+        $query->when($filters['kota'] ?? false, function($query, $kota) {
+            if($kota == "all city") {
+                $kota = "";
+            }
+            return $query->where('kota', 'like', '%'.$kota.'%');
+        });
+    }
 }

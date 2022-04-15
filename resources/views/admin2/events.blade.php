@@ -9,7 +9,6 @@
     @endif
 </div>
   @if(isset($events))
-
   @foreach ($events as $event) 
   <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4 mb-lg-0">
     <!-- Card-->

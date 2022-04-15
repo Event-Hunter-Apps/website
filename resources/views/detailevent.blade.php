@@ -15,11 +15,11 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-    <title>eCommerce Product Detail</title>
+    <title>{{isset($title)?$title:''}}</title>
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/detailevent.css">
+    <link rel="stylesheet" href="{{asset('assets/css/detailevent.css')}}">
 
 </head>
 
@@ -49,14 +49,14 @@
 
                 </div>
                 <div class="details-detail-event">
-                    <h2 class="product-title-detail-event"><b>Monas Jakarta</b></h2><br>
+                    <h2 class="product-title-detail-event"><b>{{isset($event)?$event->nama:''}}</b></h2><br>
 
                     <!-- <h4 class="harga-detail-event" style="margin-top: -10px;"><b>Rp 25.000</b></h4> -->
                     <label for="">Date</label>
                     <div class="date-input-detail-event" style="margin-top: 5px;">
-                        <input type="text" class="form-control datepicker1" id="start_date" name="start_date" value="START" disabled />
+                        <input type="text" class="form-control datepicker1" id="start_date" name="start_date" value="{{isset($event)?$event->tanggal_mulai:''}}" disabled />
 
-                        <input type="text" class="form-control datepicker1" id="end_date" name="end_date" value="END" disabled />
+                        <input type="text" class="form-control datepicker1" id="end_date" name="end_date" value="{{isset($event)?$event->tanggal_berakhir:''}}" disabled />
 
                     </div><br>
                     <label for="">Time</label>
@@ -65,31 +65,29 @@
                         <!-- <input type="time" name="time-start" id="time1">
                         <span class="line-time-detail-event"></span>
                         <span><input type="time" name="time-end" id="time2" style="margin-left: 65px;"></span> -->
-                        <input type="text" class="form-control time-pickable" id="start_time" name="start_time" value="START" disabled />
+                        <input type="text" class="form-control time-pickable" id="start_time" name="start_time" value="{{isset($event)?$event->jam_buka:''}}" disabled />
 
-                        <input type="text" class="form-control time-pickable" id="start_time" name="start_time" value="END" disabled />
+                        <input type="text" class="form-control time-pickable" id="start_time" name="start_time" value="{{isset($event)?$event->jam_tutup:''}}" disabled />
                     </div> <br>
                     <div class="col-location">
                         <label for="">Location</label><br>
-                        <textarea class="event-name-decoration" name="" id="" cols="30" rows="10" disabled required>{{ isset($event)?$event->deskripsi:'INI ISI LOKASI'}}</textarea>
+                        <textarea class="event-name-decoration" name="" id="" cols="30" rows="10" disabled required>{{isset($event)?$event->lokasi:''}}</textarea>
 
                     </div>
                     <br>
                     <div>
                         <label for="">City</label><br>
-                        <input class="event-city-decoration @error('kota') is-invalid @enderror" type="text" name="kota" id="pos-edit" value="{{ isset($event)?$event->kota:'CITY' }}" disabled>
+                        <input class="event-city-decoration @error('kota') is-invalid @enderror" type="text" name="kota" id="pos-edit" value="{{isset($event)?$event->kota:''}}" disabled>
                     </div>
-                    @error('kota')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                 
                     <br>
                     <br>
 
-                    <ul class="tags-detail-event">
+                    {{-- <ul class="tags-detail-event">
                         <li class="tag-detail-event">Fun Activities</li>
                         <li class="tag-detail-event">Explorer Indonesia</li>
                         <li class="tag-detail-event">Trip</li>
-                    </ul>
+                    </ul> --}}
                 </div>
             </div>
         </div>
@@ -97,14 +95,14 @@
             <div class="description-title-detail-event">
                 <b>Description</b>
 
-                <textarea class="event-name-decoration" name="" id="" cols="30" rows="10" disabled required>{{ isset($event)?$event->deskripsi:'INI ISI DESKRIPSI'}}</textarea>
+                <textarea class="event-name-decoration" name="" id="" cols="30" rows="10" disabled required>{{isset($event)?$event->deskripsi:''}}</textarea>
 
             </div>
         </div>
 
         <div class="btn-disc-save-detail-event">
             <a href="/category">
-                <button id="btn-save-detail-event"><b>Check Availability</b></button>
+                <a href="/events/{{isset($event)?$event->id:''}}/tikets"><button id="btn-save-detail-event"><b>Check Availability</b></button></a>
             </a>
         </div>
     </div>
