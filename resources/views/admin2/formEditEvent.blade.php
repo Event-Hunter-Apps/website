@@ -19,6 +19,14 @@
 
 <body>
     <div class="container">
+        <h1>
+            <a href="/admin/events/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-arrow-left" viewBox="16 0 16 16" style="color: #57c2b8; width: 150px">
+                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z" />
+                </svg>
+            </a>
+        </h1>
+
         <h1><b>Form Edit Event</b></h1>
         <form method="POST" action="/{{ $action }}" enctype="multipart/form-data">
             @csrf
@@ -26,7 +34,7 @@
             <div class="card-tambah-wisata">
                 <div class="wrapper-tambah-wisata row">
                     <div class="preview-tambah-wisata text-center justify-content-center" id="preview-tambah-wisata">
-                        <img class="tempat-img" id="tempat-img" src="" alt="No Image">
+                        <img class="tempat-img" id="tempat-img" src="{{$event->image}}" alt="No Image">
 
                     </div>
 
@@ -76,8 +84,8 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
 
-                       
-                            <input class="@error('jam_tutup') is-invalid @enderror" type="time" name="jam_tutup" id="time2" style="margin-left: 65px"; value="{{ isset($event)?$event->jam_tutup:'' }}">
+
+                            <input class="@error('jam_tutup') is-invalid @enderror" type="time" name="jam_tutup" id="time2" style="margin-left: 65px" ; value="{{ isset($event)?$event->jam_tutup:'' }}">
                             @error('jam_tutup')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -121,9 +129,7 @@
             </div>
 
             <div class="description-tambah-wisata" style="margin-top: 0px;">
-
-
-                <input type="file" id="image_upload" name="image_upload" accept="image/png, image/jpg">
+                <input type="file" id="image_upload" name="image_upload" accept="image/png, image/jpg" value="{{$event->image}}">
                 <br>
                 <div class="description-title-tambah-wisata">
                     <b>Description</b><br>
@@ -135,23 +141,25 @@
             </div>
 
             <div class="d-flex">
-                
+
                 <div class="btn-disc-save-tambah-wisata">
                     <button type="submit" class="save-tambah-wisata"><b>Submit</b></button>
                 </div>
-                
+
                 <div class="btn-disc-save-tambah-wisata">
-                    <b><a class="save-tambah-wisata" onclick="location.href='/admin/events/{{$event->id}}/tikets'">Ticket</a></b>
+                    <b><a class="save-tambah-wisata" style="cursor:pointer" onclick="location.href='/admin/events/{{$event->id}}/tikets'">View All Tickets</a></b>
                 </div>
             </div>
 
         </form>
+        <br>
+        <br>
         <form method="post" action="/admin/events/{{ $event->id }}" style="display:inline" onsubmit="return confirm('Yakin hapus?')">
             @csrf
             @method('DELETE')
             <button class="btn btn-danger">Delete</button>
         </form>
-        
+
     </div>
 
     <script>
