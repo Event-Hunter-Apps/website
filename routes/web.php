@@ -113,3 +113,7 @@ Route::controller(CategoryController::class)->prefix("admin/categories")->group(
 Route::controller(UserController::class)->prefix("admin/users")->group( function() {
     Route::get('/', 'index');
 });
+
+Route::get('/admin', function() {
+    return view('admin2.landingpageadmin');
+});

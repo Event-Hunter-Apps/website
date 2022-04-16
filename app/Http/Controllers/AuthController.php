@@ -23,6 +23,7 @@ class AuthController extends Controller
     }
 
     public function register(Request $req) {
+        dd($req->all());
         $validator = $req->validate([
             'email' => 'required|string|unique:users',
             'nama' => 'required',
@@ -33,6 +34,12 @@ class AuthController extends Controller
             'no_hp.unique' => "The phone number has already been taken.",
         ]);
 
+        if (isset($validator["role2"])) {
+            $validator["role2"] = 2;
+        } else {
+            $validator["role3"] = 3;
+        }
+        
         $user = User::create([
             'email' => $validator['email'],
             'nama' => $validator['nama'],

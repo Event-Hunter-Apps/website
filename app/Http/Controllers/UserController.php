@@ -17,11 +17,8 @@ class UserController extends Controller
 
         $users = User::all();
         // dd($users);
-        foreach ($users as $user => $value) {
-            $value->role_id = Role::find($value->role_id);
-        }
         return view('admin2.users', [
-            'users' => $users
+            'users' => $users,
         ]);
     }
 

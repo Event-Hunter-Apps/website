@@ -18,19 +18,16 @@
             @foreach ($users as $user)
             <tr>
                 <td>{{ $user->id }}</td>
-                <td>{{ $user->role_id->name}}</td>
+                <td>{{ $user->role->name}}</td>
                 <td>{{ $user->email }}</td>
                 <td>{{ $user->nama }}</td>
                 <td>{{ $user->no_hp }}</td>
                 <td>
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <a href="/admin/users/{{ $user->id }}/edit" class="btn btn-warning">Edit</a>
-                        <form method="post" action="/admin/users/{{ $user->id }}" style="display:inline" onsubmit="return confirm('Yakin hapus?')">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger">Delete</button>
-                        </form>
-                    </div>
+                    <form method="post" action="/admin/users/{{ $user->id }}" style="display:inline" onsubmit="return confirm('Yakin hapus?')">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
