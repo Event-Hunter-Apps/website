@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('lokasi');
             $table->string('kota');
             $table->unsignedInteger('harga');
-            $table->string('image');
+            $table->longText('image');
             $table->timestamps();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
         });

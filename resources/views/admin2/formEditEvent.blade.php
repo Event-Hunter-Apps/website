@@ -26,7 +26,7 @@
             <div class="card-tambah-wisata">
                 <div class="wrapper-tambah-wisata row">
                     <div class="preview-tambah-wisata text-center justify-content-center" id="preview-tambah-wisata">
-                        <img class="tempat-img" id="tempat-img" src="" alt="No Image">
+                        <img class="tempat-img" id="tempat-img" src="{{$event->image}}" alt="No Image">
 
                     </div>
 
@@ -121,9 +121,7 @@
             </div>
 
             <div class="description-tambah-wisata" style="margin-top: 0px;">
-
-
-                <input type="file" id="image_upload" name="image_upload" accept="image/png, image/jpg">
+                <input type="file" id="image_upload" name="image_upload" accept="image/png, image/jpg" value="{{$event->image}}">
                 <br>
                 <div class="description-title-tambah-wisata">
                     <b>Description</b><br>

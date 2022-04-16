@@ -30,7 +30,7 @@
         <div class="card-detail-event">
             <div class="wrapper-detail-event row">
                 <div class="preview-detail-event tab-content">
-                    <img src="./assets/img/Rectangle 43.png" height="400" />
+                    <img src="{{$event->image}}" height="400" />
 
                     <!-- <div class="tab-pane" id="pic-2"><img src="./assets/img/Rectangle 49.png" /></div>
                         <div class="tab-pane" id="pic-3"><img src="./assets/img/Rectangle 50.png" /></div> -->
