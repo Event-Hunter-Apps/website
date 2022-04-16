@@ -15,11 +15,6 @@
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
-				<div class="col-md-6 text-center mb-5">
-					<img src="assets/img/1.png" alt="coba">
-				</div>
-			</div>
-			<div class="row justify-content-center">
 				<div class="co=lg-12 col-lg-12">
 					<div class="wrap d-md-flex">
 						<div class="img" style="background-image: url(assets/img/tripcar.png)" ></div>
