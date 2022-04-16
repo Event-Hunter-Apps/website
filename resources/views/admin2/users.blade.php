@@ -24,7 +24,8 @@
                 <td>{{ $user->no_hp }}</td>
                 <td>
                     <div class="btn-group" role="group" aria-label="Basic example">
-                        <a href="/admin/users/{{ $user->id }}/edit" class="btn btn-warning">Edit</a>
+                        <a href="/admin/users/{{ $user->id }}/edit" class="btn btn-warning me-3">Edit</a>
+
                         <form method="post" action="/admin/users/{{ $user->id }}" style="display:inline" onsubmit="return confirm('Yakin hapus?')">
                             @csrf
                             @method('DELETE')

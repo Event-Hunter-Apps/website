@@ -3,13 +3,13 @@
 @section('list')
 <div class="row mb-4 pb-5 mx-3">
   <div class="d-flex justify-content-between">
-    <a  href="/admin/events/create"><button class="btn btn-primary mb-2">Create Event</button></a>
+    <a href="/admin/events/create"><button class="btn btn-primary mb-4">Create Event</button></a>
     @if(session()->has('msg'))
-        <div class="alert alert-success" role="alert">{{ session('msg') }}</div>
+    <div class="alert alert-success" role="alert">{{ session('msg') }}</div>
     @endif
-</div>
+  </div>
   @if(isset($events))
-  @foreach ($events as $event) 
+  @foreach ($events as $event)
   <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4 mb-lg-0">
     <!-- Card-->
     <div class="card rounded shadow-sm border-0 mb-4">
@@ -26,7 +26,7 @@
     </div>
   </div>
   @endforeach
-  
+
   @endif
 </div>
 
