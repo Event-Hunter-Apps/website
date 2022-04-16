@@ -8,6 +8,7 @@ use App\Http\Controllers\TiketController;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CheckoutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -84,15 +85,6 @@ Route::controller(CityController::class)->prefix("/admin/cities")->group(functio
     Route::put('/{id}', 'update');
     Route::delete('/{id}', 'destroy');
 });
-Route::controller(OrderController::class)->prefix("/admin/orders")->group(function () {
-    Route::get('/', 'index');
-    // Route::get('/create', 'create');
-    // Route::post('/create', 'store');
-    // Route::get('/{id}', 'show');
-    // Route::get('/{id}/edit', 'edit');
-    // Route::put('/{id}', 'update');
-    // Route::delete('/{id}', 'destroy');
-});
 
 Route::controller(EventController::class)->prefix("/admin/events")->group(function () {
     Route::get('/', 'indexAdmin');
@@ -120,8 +112,15 @@ Route::controller(CategoryController::class)->prefix("admin/categories")->group(
 
 Route::controller(UserController::class)->prefix("admin/users")->group(function () {
     Route::get('/', 'index');
+    Route::delete('/{id}', 'destroy');
+});
+
+Route::controller(CheckoutController::class)->prefix("admin/checkouts")->group(function () {
+    Route::get('/', 'index');
+   
 });
 
 Route::get('/admin', function() {
     return view('admin2.landingpageadmin');
+    
 });

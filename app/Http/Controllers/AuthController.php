@@ -23,28 +23,23 @@ class AuthController extends Controller
     }
 
     public function register(Request $req) {
-        dd($req->all());
+        // dd($req);
         $validator = $req->validate([
             'email' => 'required|string|unique:users',
             'nama' => 'required',
             'password' => 'required|string|confirmed',
-            'no_hp' => 'required|string|unique:users'
+            'no_hp' => 'required|string|unique:users',
+            'role' => 'required'
         ],
         [
             'no_hp.unique' => "The phone number has already been taken.",
         ]);
-
-        if (isset($validator["role2"])) {
-            $validator["role2"] = 2;
-        } else {
-            $validator["role3"] = 3;
-        }
         
         $user = User::create([
             'email' => $validator['email'],
             'nama' => $validator['nama'],
             'password' => bcrypt($validator['password']),
-            'role_id' => 1,
+            'role_id' => $validator["role"],
             'no_hp' => $validator['no_hp']
         ]);
 

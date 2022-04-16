@@ -32,7 +32,7 @@
 
                     <li class="nav-item">
                         <a href="/admin/orders" class="nav-link align-middle px-0 text-white">
-                            <i class="fs-4 bi bi-ticket-perforated"></i> <span class="ms-1 d-none d-sm-inline">Orders</span>
+                            <i class="fs-4 bi bi-ticket-perforated"></i> <span class="ms-1 d-none d-sm-inline">Checkouts</span>
                         </a>
                     </li>
                 </ul>

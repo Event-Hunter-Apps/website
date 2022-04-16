@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\User;
-use App\Models\Role;
-class UserController extends Controller
+use App\Models\Checkout;
+class CheckoutController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +13,8 @@ class UserController extends Controller
      */
     public function index()
     {
-
-        $users = User::all();
-        // dd($users);
-        return view('admin2.users', [
-            'users' => $users,
+        return view('admin2.checkouts', [
+            "checkouts" => Checkout::all(),
         ]);
     }
 
@@ -85,8 +81,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
-        return redirect('/admin/users')->with('msg', 'Delete Berhasil');
+        //
     }
 }

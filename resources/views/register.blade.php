@@ -27,23 +27,24 @@
 						<div class="d-flex">
 							<div class="w-100">
 								<h3 class="mb-3">Sign Up</h3>
+								
 							</div>
 							
 			      			</div>
 							<form action="/register" method="POST">
 								@csrf
-								<div class="form-check">
-									<input class="form-check-input" type="radio" name="role1" id="role1">
+								<div class="form-check form-check-inline mb-3">
+									<input class="form-check-input" type="radio" name="role" value="3">
 									<label class="form-check-label" for="role1">
 										Customer
 									</label>
-								  </div>
-								  <div class="form-check">
-									<input class="form-check-input" type="radio" name="role2" id="role2" checked>
-									<label class="form-check-label" for="role2">
-									  Event Hunter
+									</div>
+									<div class="form-check form-check-inline">
+									<input class="form-check-input " type="radio" name="role" value="2" checked>
+									<label class="form-check-label " for="role2">
+										Event Organizer
 									</label>
-								  </div>
+								</div>
 								<div class="form-group mb-3">
 									<label class="label" for="email">Email</label>
 									<input type="text" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="example@gmail.com" required>
