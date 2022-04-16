@@ -27,7 +27,7 @@
 </head>
 <body>
     <div class="text-center">
-        <img src="admin.png" class="center-block mt-5" alt="">
+        <img src="../assets/img/admin.png" class="center-block mt-5" alt="">
         <h1 style="color: #D3CFCF; font-family:poppins;">Welcome, Admin!</h1>
         <h1 style="color: #D3CFCF; font-family:poppins;"">Start to manage the event and user</h1>
     </div>
