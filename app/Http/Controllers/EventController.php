@@ -8,6 +8,10 @@ use App\Models\City;
 use App\Models\Kategori;
 use App\Models\Tiket;
 use Illuminate\Http\File;
+use Kreait\Firebase\Auth as FirebaseAuth;
+use Kreait\Firebase\Exception\FirebaseException;
+use Goggle\Cloud\Firestore\FirestoreClient;
+use Session;
 
 class EventController extends Controller
 {
@@ -16,10 +20,23 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {   
+        $events = Event::latest()->filter(request(['nama', 'kota']))->get();
+        foreach ($events as $key => $value) {
+            $expiresAt = new \DateTime('tomorrow');
+            $imageReference = app('firebase.storage')->getBucket()->object( $value->image);
+
+            if ($imageReference->exists()) {
+                $image = $imageReference->signedUrl($expiresAt);
+            } else {
+                $image = null;
+            }
+            $value->image = $image;
+        }
         return view('events', [
-            'events'=> Event::latest()->filter(request(['nama', 'kota']))->get(),
+            'events'=> $events,
             'cities'=> City::all(),
         ]);
     }
@@ -27,8 +44,16 @@ class EventController extends Controller
     public function indexAdmin()
     {
         $events = Event::all();
-        if ($events->isEmpty()) {
-          
+        foreach ($events as $key => $value) {
+            $expiresAt = new \DateTime('tomorrow');
+            $imageReference = app('firebase.storage')->getBucket()->object($value->image);
+
+            if ($imageReference->exists()) {
+                $image = $imageReference->signedUrl($expiresAt);
+            } else {
+                $image = null;
+            }
+            $value->image = $image;
         }
         return view('admin2.events', [
             'events'=> $events,
@@ -64,8 +89,6 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-
-        // dd($request->all());
         $validator = $request->validate([
             'nama'=>'required|string',
             'deskripsi' => 'required|string',
@@ -76,18 +99,24 @@ class EventController extends Controller
             'lokasi' => 'required',
             'kota' => 'required',
             'harga' => 'required',
-            // 'image_upload' => 'required',
             'kategori_id' => 'required',
             'nama_tiket' => 'required',
             'harga_tiket' => 'required',
             'deskripsi_tiket' => 'required',
             'image_upload' => 'required|image|mimes:jpeg,jpg,png',
         ]);
-        // dd("test");
+    
         if($request->hasFile('image_upload')) {
-            $validator["image_upload"] = $request->file('image_upload')->store('images');
-
-            // dd($dest_path, $path);
+            $image = $request->file('image_upload'); //image file from frontend
+            $firebase_storage_path = 'Events/';
+            $localfolder = public_path('firebase') .'/';
+            $extension = $image->getClientOriginalExtension();
+            $file      = time(). '.' . $extension;
+            if ($image->move($localfolder, $file)) {
+                $uploadedfile = fopen($localfolder.$file, 'r');
+                app('firebase.storage')->getBucket()->upload($uploadedfile, ['name' => $firebase_storage_path . $file]);
+                unlink($localfolder . $file);
+            }
         }
 
         // dd($lokasi);
@@ -102,9 +131,9 @@ class EventController extends Controller
             'lokasi' => $validator['lokasi'],
             'kota' => $validator['kota'],
             'harga' => $validator['harga'],
-            'image' => $validator["image_upload"]
+            'image' => $firebase_storage_path . $file
         ]);
-        
+    
         $tiket = Tiket::create([
             'event_id' => $event->id,
             'kategori_id' => $validator['kategori_id'],
@@ -125,6 +154,17 @@ class EventController extends Controller
     {
         
         $event = Event::find($id);
+
+        $expiresAt = new \DateTime('tomorrow');
+        $imageReference = app('firebase.storage')->getBucket()->object($event->image);
+
+        if ($imageReference->exists()) {
+            $image = $imageReference->signedUrl($expiresAt);
+        } else {
+            $image = null;
+        }
+        $event->image = $image;
+
         if ($event != null) {
             return view('detailEvent', [
                 "title" => $event->nama,
@@ -144,6 +184,16 @@ class EventController extends Controller
     {
         
         $event = Event::find($id);
+
+        $expiresAt = new \DateTime('tomorrow');
+        $imageReference = app('firebase.storage')->getBucket()->object($event->image);
+
+        if ($imageReference->exists()) {
+            $image = $imageReference->signedUrl($expiresAt);
+        } else {
+            $image = null;
+        }
+        $event->image = $image;
         
         $cities = City::all();
         return view('admin2.formEditEvent', [
@@ -163,7 +213,6 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $event = Event::find($id);
         $validator = $request->validate([
             'nama'=>'required|string',
@@ -175,8 +224,21 @@ class EventController extends Controller
             'lokasi' => 'required',
             'kota' => 'required',
             'harga' => 'required',
-            'image_upload' => 'required|image|mimes:jpeg,jpg,png',
+            'image_upload' => 'image|mimes:jpeg,jpg,png',
         ]);
+        if($request->hasFile('image_upload')) {
+            $image = $request->file('image_upload'); //image file from frontend
+            $firebase_storage_path = 'Events/';
+            $localfolder = public_path('firebase') .'/';
+            $extension = $image->getClientOriginalExtension();
+            $file      = time(). '.' . $extension;
+            if ($image->move($localfolder, $file)) {
+                $uploadedfile = fopen($localfolder.$file, 'r');
+                app('firebase.storage')->getBucket()->upload($uploadedfile, ['name' => $firebase_storage_path . $file]);
+                unlink($localfolder . $file);
+            }
+        }
+        $validator['image_upload'] = $firebase_storage_path . $file;
         $event->update($request->all());
         return redirect('/admin/events')->with('msg', 'berhasil');
     }
@@ -190,9 +252,7 @@ class EventController extends Controller
     public function destroy($id)
     {
         $event = Event::find($id);
-
         $event->delete();
-
         return redirect('/admin/events')->with('msg', 'Delete Berhasil');
     }
     
@@ -204,4 +264,6 @@ class EventController extends Controller
             "event" => $event
         ]);
     }
+
+    
 }

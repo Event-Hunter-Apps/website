@@ -19,6 +19,7 @@ return new class extends Migration
             $table->timestamp('tanggal_checkout');
             $table->string('status');
             $table->unsignedInteger('total_harga');
+            $table->timestamp('paid_at')->nullable();
             $table->timestamps();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
         });
