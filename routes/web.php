@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\TiketController;
 use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/login', function () {
         return view('login');
     })->name('login');
-    
+
     Route::get('/register', function () {
         return view('register');
     });
@@ -41,7 +42,7 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [HomePageController::class, 'homepage']);
-    
+
     Route::get('/events', [EventController::class, 'index']);
     Route::get('/events/{id}', [EventController::class, 'show']);
     Route::get('/events/{id}/tikets', [EventController::class, 'tiket']);
@@ -49,19 +50,18 @@ Route::middleware('auth')->group(function () {
         return view('checkout');
     });
 
-    
     Route::get('/cart', function () {
         return view('cart');
     });
-    
+
     Route::get('/category', function () {
         return view('category');
     });
-    
+
     Route::get('/edit', function () {
         return view('editwisata');
     });
-    
+
     Route::get('/add', function () {
         return view('tambahwisata');
     });
@@ -69,13 +69,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/add2', function () {
         return view('admin2.formEvent');
     });
-    
+
     Route::get('/detailEvent', function () {
         return view('detailevent');
     });
 });
 
-Route::controller(CityController::class)->prefix("/admin/cities")->group( function () {
+Route::controller(CityController::class)->prefix("/admin/cities")->group(function () {
     Route::get('/', 'index');
     Route::get('/create', 'create');
     Route::post('/create', 'store');
@@ -84,8 +84,17 @@ Route::controller(CityController::class)->prefix("/admin/cities")->group( functi
     Route::put('/{id}', 'update');
     Route::delete('/{id}', 'destroy');
 });
+Route::controller(OrderController::class)->prefix("/admin/orders")->group(function () {
+    Route::get('/', 'index');
+    // Route::get('/create', 'create');
+    // Route::post('/create', 'store');
+    // Route::get('/{id}', 'show');
+    // Route::get('/{id}/edit', 'edit');
+    // Route::put('/{id}', 'update');
+    // Route::delete('/{id}', 'destroy');
+});
 
-Route::controller(EventController::class)->prefix("/admin/events")->group( function () {
+Route::controller(EventController::class)->prefix("/admin/events")->group(function () {
     Route::get('/', 'indexAdmin');
     Route::get('/create', 'create');
     Route::post('/create', 'store');
@@ -93,10 +102,9 @@ Route::controller(EventController::class)->prefix("/admin/events")->group( funct
     Route::get('/{id}/edit', 'edit');
     Route::put('/{id}', 'update');
     Route::delete('/{id}', 'destroy');
-    
 });
 
-Route::controller(TiketController::class)->prefix("/admin/events/{event_id}/tikets")->group( function () {
+Route::controller(TiketController::class)->prefix("/admin/events/{event_id}/tikets")->group(function () {
     Route::get('/', 'index');
     Route::get('/create', 'create');
     Route::post('/create', 'store');
@@ -106,11 +114,11 @@ Route::controller(TiketController::class)->prefix("/admin/events/{event_id}/tike
     Route::delete('/{tiket_id}', 'destroy');
 });
 
-Route::controller(CategoryController::class)->prefix("admin/categories")->group( function() {
+Route::controller(CategoryController::class)->prefix("admin/categories")->group(function () {
     Route::post('/create', 'store');
 });
 
-Route::controller(UserController::class)->prefix("admin/users")->group( function() {
+Route::controller(UserController::class)->prefix("admin/users")->group(function () {
     Route::get('/', 'index');
 });
 
