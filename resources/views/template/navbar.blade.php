@@ -1,5 +1,4 @@
 <!-- Navbar -->
-
 <nav class="autohide shadow navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <a class="navbar-brand" href="/home">
@@ -30,6 +29,14 @@
               <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle" style="width: 23px" alt="Avatar" />
             </button>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="defaultDropdown">
+              <li>
+                <div class="dropdown-item">
+                  <div>
+                    {{Auth::user()->role->name}}
+                  </div>
+                    {{ Auth::user()->nama}}
+                </div>
+              </li>
               <li>
                 <form action="/logout" method="POST">
                   @csrf

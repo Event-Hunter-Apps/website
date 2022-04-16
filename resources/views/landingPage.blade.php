@@ -34,7 +34,7 @@
       <div>
         <!-- Card-->
         <div class="card rounded shadow-sm border-0 mb-4">
-          <img src="./assets/img/jakarta.png" alt="" class="img-fluid d-block">
+          <img src="{{$event->image}}" alt="" class="img-fluid d-block">
           <div class="card-body">
             <h5> <a href="#" class="text-dark"></a>{{$event->nama}}</h5>
             <p class="small text-muted font-italic">Starting from</p>

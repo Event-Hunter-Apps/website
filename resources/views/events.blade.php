@@ -4,7 +4,7 @@
 <div class="container py-5 product-list">
   <div class="navbar justify-content-between">
  
-    <h2>Tourist Spot {{request('kota')}}</h2>
+    <h2>Tourist Spot {{ "in ".request('kota')}}</h2>
   
     <form class="form-inline d-flex filter" action="/events">
       <select name="kota" class="form-select" aria-label="Default select example">

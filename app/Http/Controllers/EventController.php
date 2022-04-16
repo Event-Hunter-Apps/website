@@ -103,7 +103,7 @@ class EventController extends Controller
             'nama_tiket' => 'required',
             'harga_tiket' => 'required',
             'deskripsi_tiket' => 'required',
-            'image_upload' => 'required|image|mimes:jpeg,jpg,png',
+            'image_upload' => 'required|image|mimes:jpeg,jpg,png|max:2048',
         ]);
     
         if($request->hasFile('image_upload')) {
@@ -224,8 +224,9 @@ class EventController extends Controller
             'lokasi' => 'required',
             'kota' => 'required',
             'harga' => 'required',
-            'image_upload' => 'image|mimes:jpeg,jpg,png',
+            'image_upload' => 'image|mimes:jpeg,jpg,png|max:2048',
         ]);
+
         if($request->hasFile('image_upload')) {
             $image = $request->file('image_upload'); //image file from frontend
             $firebase_storage_path = 'Events/';
@@ -238,8 +239,18 @@ class EventController extends Controller
                 unlink($localfolder . $file);
             }
         }
-        $validator['image_upload'] = $firebase_storage_path . $file;
-        $event->update($request->all());
+        $event->nama = $validator["nama"];
+        $event->deskripsi = $validator["deskripsi"];
+        $event->tanggal_mulai = $validator["tanggal_mulai"];
+        $event->tanggal_berakhir = $validator["tanggal_berakhir"];
+        $event->jam_buka = $validator["jam_buka"];
+        $event->jam_tutup = $validator["jam_tutup"];
+        $event->lokasi = $validator["lokasi"];
+        $event->kota = $validator["kota"];
+        $event->harga = $validator["harga"];
+        $event->image = $firebase_storage_path . $file;
+        $event->save();
+        
         return redirect('/admin/events')->with('msg', 'berhasil');
     }
 
