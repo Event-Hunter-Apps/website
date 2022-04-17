@@ -27,7 +27,7 @@
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Nama</label>
             <div class="col-sm-10">
-                <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" value="{{ isset($tiket)?$tiket->nama:'' }}">
+                <input name="nama" type="text" class="form-control @error('nama') is-invalid @enderror" value="{{ isset($tiket)?$tiket->nama:old('nama') }}">
             </div>
         </div>
         @error('nama')
@@ -37,7 +37,7 @@
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Deskripsi</label>
             <div class="col-sm-10">
-                <input name="deskripsi" type="text" class="form-control @error('deskripsi') is-invalid @enderror" value="{{ isset($tiket)?$tiket->deskripsi:'' }}">
+                <input name="deskripsi" type="text" class="form-control @error('deskripsi') is-invalid @enderror" value="{{ isset($tiket)?$tiket->deskripsi:old('deskripsi') }}">
             </div>
         </div>
         @error('deskripsi')
@@ -47,7 +47,7 @@
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Harga</label>
             <div class="col-sm-10">
-                <input name="harga" type="text" class="form-control @error('harga') is-invalid @enderror" value="{{ isset($tiket)?$tiket->harga:'' }}">
+                <input name="harga" type="text" class="form-control @error('harga') is-invalid @enderror" value="{{ isset($tiket)?$tiket->harga:old('harga') }}">
             </div>
         </div>
         @error('harga')

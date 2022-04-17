@@ -1,7 +1,7 @@
 @extends('admin2.sidebar')
 @section('title')
 <title>Form City</title>
-<link rel="icon" href="{{asset('assets/img/1.png')}}"/>
+<link rel="icon" href="{{asset('assets/img/1.png')}}" />
 @endsection
 @section('list')
 <div class="container">
@@ -12,7 +12,7 @@
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Nama</label>
             <div class="col-sm-10">
-                <input name="name" type="text" class="form-control @error('name') is-invalid @enderror" value="{{ isset($city)?$city->name:'' }}">
+                <input name="name" type="text" class="form-control @error('name') is-invalid @enderror" value="{{ isset($city)?$city->name:old('name') }}">
             </div>
         </div>
         @error('name')
