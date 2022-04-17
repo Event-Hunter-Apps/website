@@ -26,7 +26,11 @@
             width: 100%;
             z-index: 1030;
         }
+        .h1, .h2{
+            font-family: poppins;
+            font-weight:bold;
 
+        }
         .scrolled-down {
             transform: translateY(-100%);
             transition: all 0.3s ease-in-out;

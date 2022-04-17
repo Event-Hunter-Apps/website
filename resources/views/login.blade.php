@@ -35,7 +35,7 @@
 								
 								<div class="form-group mb-3">
 									<label class="label" for="name">Email</label>
-									<input type="text" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Username"  required>
+									<input type="text" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email"  required>
 								</div>
 								@error('email')
     								<div class="alert alert-danger">{{ $message }}</div>
