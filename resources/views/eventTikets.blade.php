@@ -28,54 +28,28 @@
     </div>
 
     <div class="row justify-content-center">
-      <!--  Bagian Event Detail -->
-      @if(isset($tikets))
-      @foreach ($tikets as $tiket)
       <div class="col-8 mb-5">
         <div class="shadow ms-4 px-4 py-4">
+          @if(isset($tikets))
+
+          @foreach ($tikets as $tiket)
           <div class="mb-4 list-tile">
             <div class="row mb-2">
               <span class="col-9 fw-bold">[-] {{$tiket->nama}}</span>
-              <span class="col-3 fw-bold">Rp. {{$tiket->harga}}</span>
+              <span class="col-3 fw-bold">Rp {{$tiket->idrPrice}}</span>
             </div>
             <div class="row mb-2">
-              <span class="col-9 fw-normal">{{$tiket->deskripsi}}</span>
-              
-              {{-- <div class="row col-3">
-                <a href="#" class="col-4 mx-2 px-3 btn-action" style="
-                        text-decoration: none;
-                        background-color: grey;
-                        color: white;
-                      ">
-                  <span>-</span>
-                </a>
-
-                <a href="#" class="col-4 px-3 btn-action" style="
-                        text-decoration: none;
-                        background-color: #57c2b8;
-                        color: white;
-                      ">
-                  <span>+</span>
-                </a>
-
-                <span class="col-4 fw-bold">10</span>
-              </div> --}}
+              <span class="col-9 fw-normal">
+                {{$tiket->deskripsi}}</span>
             </div>
           </div>
+          <hr>
+          @endforeach
+          @endif
+
+          <!-- Akhir Bagian Event Detail -->
         </div>
-        @endforeach
-        @else
-        Kosong
-        @endif
-        {{-- <a href="/checkout" style="color: white; text-decoration: none">
-          <div class="d-flex ms-4 mt-3 py-3 px-4 rounded-3" style="background-color: #57c2b8">
-            <span class="col fw-normal">Total price for 5 tickets</span>
-            <span class="fw-normal">Rp 500.000</span>
-          </div>
-        </a> --}}
       </div>
-      
-      <!-- Akhir Bagian Event Detail -->
     </div>
   </div>
 </section>

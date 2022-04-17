@@ -17,7 +17,7 @@
       </ul>
       <ul class="navbar-nav ms-4">
         <li class="nav-item">
-          
+
         </li>
 
         <li>
@@ -29,6 +29,7 @@
               <li>
                 <div class="dropdown-item disabled">
                   <div>
+
                     {{ Auth::user()->nama}}
 
                   </div>
@@ -36,10 +37,16 @@
                 </div>
               </li>
               <!-- kalo misal role nya EO : tambahin 'Add Your Event' -->
+              <!-- Buat Admin -->
+              <li>
+                <a href="/admin" type="submit" class="dropdown-item"><i class="bi bi-gear-fill"></i> Manage</a>
+              </li>
+
+
               <li>
                 <form action="/logout" method="POST">
                   @csrf
-                  <button type="submit" class="dropdown-item">Log out</button>
+                  <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right"></i> Log out</button>
                 </form>
               </li>
 
@@ -47,7 +54,7 @@
           </div>
         </li>
         <li class="nav-item">
-          
+
         </li>
       </ul>
     </div>

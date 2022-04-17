@@ -1,9 +1,6 @@
 @extends('template.master')
 
 @section('body')
-
-<!-- Content -->
-
 <section class="content">
   <div class="container">
     <!-- Back button dan Teks Promo -->
@@ -34,7 +31,7 @@
           <div class="mb-4 list-tile">
             <div class="row mb-2">
               <span class="col-9 fw-bold">[-] {{$tiket->nama}}</span>
-              <span class="col-3 fw-bold">Rp {{$tiket->harga}}</span>
+              <span class="col-3 fw-bold">Rp {{$tiket->idrPrice}}</span>
             </div>
             <div class="row mb-2">
               <span class="col-9 fw-normal">
@@ -59,15 +56,14 @@
               </div>
             </div>
           </div>
-          <hr />
+          <hr>
           @endforeach
           @endif
 
           <!-- Akhir Bagian Event Detail -->
         </div>
       </div>
+    </div>
+  </div>
 </section>
-
-<!-- Akhir Content -->
-
 @endsection
