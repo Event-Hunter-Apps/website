@@ -10,6 +10,8 @@ use App\Models\Order;
 use App\Models\Role;
 use App\Models\Kategori;
 use App\Models\Event;
+use App\Models\City;
+use App\Models\Checkout;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,6 +23,20 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        City::insert(
+            array(
+                array('name' => "Aceh"),
+                array('name' => "Medan"),
+                array('name' => "Padang"),
+                array('name' => "Bengkulu"),
+                array('name' => "Banten"),
+                array('name' => "Jakarta"),
+                array('name' => "Bandung"),
+                array('name' => "Jogjakarta"),
+                array('name' => "Solo"),
+                array('name' => "Surabaya"),
+            )
+        );
         Kategori::insert(
             array(
                 array("nama" => "Normal",),
@@ -42,7 +58,7 @@ class DatabaseSeeder extends Seeder
                 array('role_id' => 2, "email" => "alexsandra@gmail.com", "password" => bcrypt("1234"), 'nama' => 'Alexandra', 'no_hp' => '082222222222'),
                 array('role_id' => 3, "email" => "boltez@gmail.com", "password" => bcrypt("1234"), 'nama' => 'Boltez', 'no_hp' => '083333333333'),
                 array('role_id' => 3, "email" => "hikaru@gmail.com", "password" => bcrypt("1234"), 'nama' => 'Hikaru', 'no_hp' => '084444444444'),
-                array('role_id' => 3, "email" => "boltez@gmail.com", "password" => bcrypt("1234"), 'nama' => 'Boltez', 'no_hp' => '083333333333'),
+                array('role_id' => 3, "email" => "nikizefanya@gmail.com", "password" => bcrypt("1234"), 'nama' => 'Niki', 'no_hp' => '083333333333'),
             )
         );
 
@@ -56,7 +72,7 @@ class DatabaseSeeder extends Seeder
 
             )
         );
-\
+
         Tiket::insert(
             array(
                 array('event_id' => 1, "kategori_id" => 1, "nama" => "Anak - Anak", 'deskripsi' => 'Hanya untuk anak balita', 'harga' => 50000),
@@ -86,7 +102,15 @@ class DatabaseSeeder extends Seeder
             )
         );
 
-
+        Checkout::insert(
+            array(
+                array('user_id' => 3, 'tanggal_checkout' => "2022-04-27", 'status' => "Pending", 'total_harga' => 50000, 'paid_at'=>'2022-04-20'),
+                array('user_id' => 4, 'tanggal_checkout' => "2022-04-27", 'status' => "Cancel", 'total_harga' => 20000, 'paid_at'=> null),
+                array('user_id' => 5, 'tanggal_checkout' => "2022-04-17", 'status' => "Complete", 'total_harga' => 35000, 'paid_at'=>'2022-04-15'),
+                array('user_id' => 4, 'tanggal_checkout' => "2022-04-17", 'status' => "Complete", 'total_harga' => 50000, 'paid_at'=>'2022-04-15'),
+                array('user_id' => 5, 'tanggal_checkout' => "2022-04-17", 'status' => "Complete", 'total_harga' => 60000, 'paid_at'=>'2022-04-15'),
+            )
+        );
         Order::insert(
             array(
                 array('cart_id' => 1, "tiket_id" => 1, "quantity" => 3),
@@ -95,16 +119,12 @@ class DatabaseSeeder extends Seeder
                 array('cart_id' => 4, "tiket_id" => 6, "quantity" => 1),
                 array('cart_id' => 5, "tiket_id" => 11, "quantity" => 4),
 
-                array('cart_id' => 6, "tiket_id" => 20, "quantity" => 1),
-                array('cart_id' => 7, "tiket_id" => 16, "quantity" => 1),
-                array('cart_id' => 8, "tiket_id" => 12, "quantity" => 4),
-                array('cart_id' => 9, "tiket_id" => 8, "quantity" => 2),
-                array('cart_id' => 10, "tiket_id" => 4, "quantity" => 5),
+                array('cart_id' => 1, "tiket_id" => 20, "quantity" => 1),
+                array('cart_id' => 1, "tiket_id" => 16, "quantity" => 1),
+                array('cart_id' => 3, "tiket_id" => 12, "quantity" => 4),
+                array('cart_id' => 3, "tiket_id" => 8, "quantity" => 2),
+                array('cart_id' => 3, "tiket_id" => 4, "quantity" => 5),
             )
         );
-
-     
-
-        
     }
 }
