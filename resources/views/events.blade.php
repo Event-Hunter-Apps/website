@@ -1,5 +1,6 @@
 @extends('template.master')
-
+<title>Available Event</title>
+<link rel="icon" href="{{asset('assets/img/1.png')}}"/>
 @section('body')
 <div class="container py-5 product-list">
   <div class="navbar justify-content-between">
