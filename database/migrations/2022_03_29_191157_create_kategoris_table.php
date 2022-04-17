@@ -20,11 +20,6 @@ return new class extends Migration
             $table->softDeletes($column = 'deleted_at', $precision = 0);
         });
 
-        DB::table("kategoris")->insert(
-            array(
-                array('nama' => "Normal", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
-            )
-        );
     }
 
     /**
