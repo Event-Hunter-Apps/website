@@ -27,9 +27,9 @@
 </head>
 <body>
     <div class="text-center">
-        <img src="../assets/img/admin.png" class="center-block mt-5" alt="">
-        <h1 style="color: #D3CFCF; font-family:poppins;">Welcome, Admin!</h1>
-        <h1 style="color: #D3CFCF; font-family:poppins;"">Start to manage the event and user</h1>
+        <img src="{{asset('assets/img/admin.png')}}" style="width:200px; height:200px" class="center-block mt-5" alt="">
+        <h1 style="color: #D3CFCF; font-family:poppins;">Welcome, {{Auth::user()->nama}}!</h1>
+        <h1 style="color: #D3CFCF; font-family:poppins;">Start to manage the event and user</h1>
     </div>
     <section class="p-5">
         <div class="container">
@@ -43,8 +43,8 @@
                             <h3 class="card-title" style=" font-family:poppins;">
                                 Users
                             </h3>
-                            <h1 style="font-family:poppins;">200</h1>
-                            <a href="#" class="btn mt-3" style="color: #BABABA; font-family:poppins;">Edit</a>
+                            <h1 style="font-family:poppins;">{{$user}}</h1>
+                            <a href="/admin/users" class="btn mt-3" style="color: #BABABA; font-family:poppins;">view</a>
                             
                         </div>
                     </div>
@@ -58,8 +58,8 @@
                             <h3 class="card-title" style="font-family:poppins;">
                                 Events
                             </h3>
-                            <h1 style="font-family:poppins;">200</h1>
-                            <a href="#" class="btn mt-3" style="color: #BABABA; font-family:poppins;">Edit</a>
+                            <h1 style="font-family:poppins;">{{$event}}</h1>
+                            <a href="admin/events" class="btn mt-3" style="color: #BABABA; font-family:poppins;">view</a>
                             
                         </div>
                     </div>
@@ -73,8 +73,8 @@
                             <h3 class="card-title" style="font-family:poppins;">
                                 Cities
                             </h3>
-                            <h1 style="font-family:poppins;">200</h1>
-                            <a href="#" class="btn mt-3" style="color: #BABABA; font-family:poppins;">Edit</a>
+                            <h1 style="font-family:poppins;">{{$city}}</h1>
+                            <a href="admin/cities" class="btn mt-3" style="color: #BABABA; font-family:poppins;">view</a>
                             
                         </div>
                     </div>
@@ -88,10 +88,10 @@
                                 </svg>
                             </div>
                             <h3 class="card-title" style="font-family:poppins;">
-                                Orders
+                                Checkouts
                             </h3>
-                            <h1 style="font-family:poppins;">200</h1>
-                            <a href="#" class="btn mt-3" style="color: #BABABA; font-family:poppins;">Edit</a>
+                            <h1 style="font-family:poppins;">{{$checkout}}</h1>
+                            <a href="/admin/checkouts" class="btn mt-3" style="color: #BABABA; font-family:poppins;">view</a>
                             
                         </div>
                     </div>
