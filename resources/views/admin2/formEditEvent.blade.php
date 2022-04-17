@@ -44,7 +44,7 @@
                     <div class="details-tambah-wisata">
                         <div class="col-position-tambah-wisata">
                             <label for="">Event Name</label><br>
-                            <input class="@error('nama') is-invalid @enderror" type="text" name="nama" id="pos-edit" value="{{ isset($event)?$event->nama:'' }}">
+                            <input class="@error('nama') is-invalid @enderror" type="text" name="nama" id="pos-edit" value="{{ isset($event)?$event->nama:old('nama') }}">
                         </div>
                         @error('nama')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -53,7 +53,7 @@
 
                         <div class="col-position-tambah-wisata">
                             <label for="">Price</label><br>
-                            <input class="@error('harga') is-invalid @enderror" type="text" name="harga" id="pos-edit" value="{{ isset($event)?$event->harga:'' }}">
+                            <input class="@error('harga') is-invalid @enderror" type="text" name="harga" id="pos-edit" value="{{ isset($event)?$event->harga:old('harga') }}">
                         </div>
                         @error('harga')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -64,13 +64,13 @@
                             <label for="">Date</label><br>
                         </div>
                         <div class="date-input-tambah-wisata">
-                            <input class="@error('tanggal_mulai') is-invalid @enderror" type="date" name="tanggal_mulai" id="date1" value="{{ isset($event)?$event->tanggal_mulai:'' }}">
+                            <input class="@error('tanggal_mulai') is-invalid @enderror" type="date" name="tanggal_mulai" id="date1" value="{{ isset($event)?$event->tanggal_mulai:old('tanggal_mulai') }}">
                             @error('tanggal_mulai')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
 
 
-                            <input class="@error('tanggal_berakhir') is-invalid @enderror" type="date" name="tanggal_berakhir" id="date2" style="margin-left: 65px;" value="{{ isset($event)?$event->tanggal_berakhir:'' }}">
+                            <input class="@error('tanggal_berakhir') is-invalid @enderror" type="date" name="tanggal_berakhir" id="date2" style="margin-left: 65px;" value="{{ isset($event)?$event->tanggal_berakhir:old('tanggal_berakhir') }}">
                             @error('tanggal_berakhir')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -81,13 +81,13 @@
                             <label for="">Time</label><br>
                         </div>
                         <div class="time-input-tambah-wisata">
-                            <input class="@error('jam_buka') is-invalid @enderror" type="time" name="jam_buka" id="time1" value="{{ isset($event)?$event->jam_buka:'' }}">
+                            <input class="@error('jam_buka') is-invalid @enderror" type="time" name="jam_buka" id="time1" value="{{ isset($event)?$event->jam_buka:old('jam_buka') }}">
                             @error('waktu_event')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
 
 
-                            <input class="@error('jam_tutup') is-invalid @enderror" type="time" name="jam_tutup" id="time2" style="margin-left: 65px" ; value="{{ isset($event)?$event->jam_tutup:'' }}">
+                            <input class="@error('jam_tutup') is-invalid @enderror" type="time" name="jam_tutup" id="time2" style="margin-left: 65px" ; value="{{ isset($event)?$event->jam_tutup:old('jam_tutup') }}">
                             @error('jam_tutup')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -95,7 +95,7 @@
 
                         <div class="col-position-tambah-wisata">
                             <label for="">Location</label><br>
-                            <input class="@error('lokasi') is-invalid @enderror" type="text" name="lokasi" id="pos-edit" value="{{ isset($event)?$event->lokasi:'' }}">
+                            <input class="@error('lokasi') is-invalid @enderror" type="text" name="lokasi" id="pos-edit" value="{{ isset($event)?$event->lokasi:old('lokasi') }}">
                             @error('lokasi')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -131,7 +131,7 @@
             </div>
 
             <div class="description-tambah-wisata" style="margin-top: 0px;">
-                <input class="@error('image_upload') is-invalid @enderror" type="file" id="image_upload" name="image_upload">
+                <input class="@error('image_upload') is-invalid @enderror" type="file" id="image_upload" name="image_upload" value="{{old('image_upload')}}">
                 @error('image_upload')
                 <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
