@@ -1,5 +1,3 @@
-
-
 @extends('template.master')
 
 @section('body')
@@ -8,12 +6,19 @@
     <div class="container">
       <div class="content">
         <div class="col-lg-5 col-md-6 ">
-          <h1>Enjoy Your</h1>
-          <h1>Vacation With Us</h1>
-          <p>Book a ticket for the tour you want to go now. Because queuing just to buy tickets sucks. You can spend your time on vacation instead of queuing to buy tickets</p>
+          <div class="h1">
+            Enjoy Your 
+          </div>
+
+          <div class="h1">
+            Vacation With Us
+          </div>
+          <p style=" font-family:poppins;">Book a ticket for the tour you want to go now. Because queuing just to buy tickets sucks. You can spend your time on vacation instead of queuing to buy tickets</p>
           <div class="d-flex">
-            <a href="/events">
-              <button class="btn btn-light me-2 px-5">Event</button>
+            <a href="#EVENT">
+              <button class="btn btn-light me-2 px-5">
+                Event
+              </button>
             </a>
           </div>
         </div>
@@ -27,7 +32,7 @@
 
 <section id="EVENT">
   <div class="product-list container py-5 ">
-    <h2 class="text-center">Event</h2>
+    <div class="h2 text-center" style="color:#32B0C7"> Event</div>
     <div class="owl-carousel owl-theme pb-5 my-5">
       @if(isset($events))
       @foreach ($events as $event)
@@ -45,10 +50,10 @@
           </div>
           <a class="stretched-link" href="/events/{{$event->id}}"></a>
         </div>
+      </div>
+      @endforeach
+      @endif
     </div>
-    @endforeach
-    @endif
-  </div>
 </section>
 
 
