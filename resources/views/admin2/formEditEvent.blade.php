@@ -53,7 +53,7 @@
 
                         <div class="col-position-tambah-wisata">
                             <label for="">Price</label><br>
-                            <input class="@error('harga') is-invalid @enderror" type="text" name="harga" id="pos-edit" value="Rp {{ isset($event)?$event->idrPrice:'' }}">
+                            <input class="@error('harga') is-invalid @enderror" type="text" name="harga" id="pos-edit" value="{{ isset($event)?$event->harga:'' }}">
                         </div>
                         @error('harga')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -131,7 +131,10 @@
             </div>
 
             <div class="description-tambah-wisata" style="margin-top: 0px;">
-                <input type="file" id="image_upload" name="image_upload" accept="image/png, image/jpg" value="{{$event->image}}">
+                <input class="@error('image_upload') is-invalid @enderror" type="file" id="image_upload" name="image_upload">
+                @error('image_upload')
+                <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
                 <br>
                 <div class="description-title-tambah-wisata">
                     <b>Description</b><br>

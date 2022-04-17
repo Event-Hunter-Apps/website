@@ -79,7 +79,7 @@ class EventController extends Controller
             'harga' => 'required',
             'kategori_id' => 'required',
             'nama_tiket' => 'required',
-            'harga_tiket' => 'required',
+            'harga_tiket' => 'required|integer',
             'deskripsi_tiket' => 'required',
             'image_upload' => 'required|image|mimes:jpeg,jpg,png|max:2048',
         ]);
@@ -178,7 +178,7 @@ class EventController extends Controller
             'jam_tutup' => 'required',
             'lokasi' => 'required',
             'kota' => 'required',
-            'harga' => 'required',
+            'harga' => 'required|integer',
             'image_upload' => 'image|mimes:jpeg,jpg,png|max:2048',
         ]);
 
@@ -193,6 +193,7 @@ class EventController extends Controller
                 app('firebase.storage')->getBucket()->upload($uploadedfile, ['name' => $firebase_storage_path . $file]);
                 unlink($localfolder . $file);
             }
+            $event->image = $firebase_storage_path . $file;
         }
         $event->nama = $validator["nama"];
         $event->deskripsi = $validator["deskripsi"];
@@ -203,7 +204,7 @@ class EventController extends Controller
         $event->lokasi = $validator["lokasi"];
         $event->kota = $validator["kota"];
         $event->harga = $validator["harga"];
-        $event->image = $firebase_storage_path . $file;
+        
         $event->save();
         
         return redirect('/admin/events')->with('msg', 'berhasil');
