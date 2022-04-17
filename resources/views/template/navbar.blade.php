@@ -30,7 +30,7 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="defaultDropdown">
               <li>
-                <div class="dropdown-item">
+                <div class="dropdown-item disabled">
                   <div>
                     {{ Auth::user()->nama}}
 
