@@ -1,5 +1,3 @@
-
-
 @extends('template.master')
 
 @section('body')
@@ -12,7 +10,7 @@
           <h1>Vacation With Us</h1>
           <p>Book a ticket for the tour you want to go now. Because queuing just to buy tickets sucks. You can spend your time on vacation instead of queuing to buy tickets</p>
           <div class="d-flex">
-            <a href="/events">
+            <a href="#EVENT">
               <button class="btn btn-light me-2 px-5">Event</button>
             </a>
           </div>
@@ -45,10 +43,10 @@
           </div>
           <a class="stretched-link" href="/events/{{$event->id}}"></a>
         </div>
+      </div>
+      @endforeach
+      @endif
     </div>
-    @endforeach
-    @endif
-  </div>
 </section>
 
 

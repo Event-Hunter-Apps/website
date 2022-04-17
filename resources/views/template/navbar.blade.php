@@ -11,7 +11,7 @@
           <a class="nav-link active" aria-current="page" href="/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#EVENT">Event</a>
+          <a class="nav-link" href="/events">Event</a>
         </li>
 
       </ul>
@@ -32,11 +32,13 @@
               <li>
                 <div class="dropdown-item">
                   <div>
-                    {{Auth::user()->role->name}}
-                  </div>
                     {{ Auth::user()->nama}}
+
+                  </div>
+                  {{Auth::user()->role->name}}
                 </div>
               </li>
+              <!-- kalo misal role nya EO : tambahin 'Add Your Event' -->
               <li>
                 <form action="/logout" method="POST">
                   @csrf
