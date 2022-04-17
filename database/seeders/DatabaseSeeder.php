@@ -44,8 +44,7 @@ class DatabaseSeeder extends Seeder
                 array('cart_id' => "7", "tiket_id" => "16", "quantity" => "1"),
                 array('cart_id' => "8", "tiket_id" => "12", "quantity" => "4"),
                 array('cart_id' => "9", "tiket_id" => "8", "quantity" => "2"),
-                array('cart_id' => "10", "tiket_id" => "4", "quantity" => "5")
-
+                array('cart_id' => "10", "tiket_id" => "4", "quantity" => "5"),
             )
         )
     }
