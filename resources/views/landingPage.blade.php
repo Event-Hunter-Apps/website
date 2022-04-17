@@ -1,5 +1,5 @@
 @extends('template.master')
-
+<title>Home</title>
 @section('body')
 <section id="landing">
   <div class="container-fluid px-0 top-banner">

@@ -26,12 +26,12 @@
     </style>
 </head>
 <body>
-    <div class="text-center">
-        <img src="{{asset('assets/img/admin.png')}}" style="width:200px; height:200px" class="center-block mt-5" alt="">
+    <div class="text-center mt-5">
         <h1 style="color: #D3CFCF; font-family:poppins;">Welcome, {{Auth::user()->nama}}!</h1>
         <h1 style="color: #D3CFCF; font-family:poppins;">Start to manage the event and user</h1>
+        <img src="{{asset('assets/img/admin.png')}}" style="width:450px; height: 450px;" class="center-block" alt="">
     </div>
-    <section class="p-5">
+    <section class="p-1">
         <div class="container">
             <div class="row text-center">   
                 <div class="col-md">
