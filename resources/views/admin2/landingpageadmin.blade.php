@@ -34,6 +34,7 @@
     <section class="p-5">
         <div class="container">
             <div class="row text-center">   
+                @can('admin')
                 <div class="col-md">
                     <div class="card bg-primary text-light">
                         <div class="card-body text-center">
@@ -49,6 +50,7 @@
                         </div>
                     </div>
                 </div>
+                @endcan
                 <div class="col-md">
                     <div class="card bg-primary text-light">
                         <div class="card-body text-center">
@@ -79,6 +81,7 @@
                         </div>
                     </div>
                 </div>
+                @can('admin')
                 <div class="col-md">
                     <div class="card bg-primary text-light">
                         <div class="card-body text-center">
@@ -96,6 +99,7 @@
                         </div>
                     </div>
                 </div>
+                @endcan
             </div>
         </div>
     </section>

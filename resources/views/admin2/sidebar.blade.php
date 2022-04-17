@@ -18,11 +18,13 @@
                         </a>
                     </li>
 
+                    @can('admin')
                     <li class="nav-item">
                         <a href="/admin/users" class="nav-link align-middle px-0 text-white">
                             <i class="fs-4 bi-people-fill"></i> <span class="ms-1 d-none d-sm-inline">Users</span>
                         </a>
                     </li>
+                    @endcan
 
                     <li class="nav-item">
                         <a href="/admin/cities" class="nav-link align-middle px-0 text-white">
@@ -30,11 +32,14 @@
                         </a>
                     </li>
 
+                    @can('admin')
                     <li class="nav-item">
                         <a href="/admin/checkouts" class="nav-link align-middle px-0 text-white">
                             <i class="fs-4 bi bi-ticket-perforated"></i> <span class="ms-1 d-none d-sm-inline">Checkouts</span>
                         </a>
                     </li>
+                    @endcan
+                    
                 </ul>
 
             </div>

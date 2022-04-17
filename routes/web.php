@@ -24,13 +24,6 @@ Route::get('/', function () {
     return redirect('/login');
 });
 
-
-
-
-Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/logout', [AuthController::class, 'logout']);
-
 Route::middleware('guest')->group(function () {
     Route::get('/login', function () {
         return view('login');
@@ -39,85 +32,68 @@ Route::middleware('guest')->group(function () {
     Route::get('/register', function () {
         return view('register');
     });
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::get('/logout', function() {
+        return redirect('/login');
+    });
 });
 
 Route::middleware('auth')->group(function () {
     Route::get('/home', [HomePageController::class, 'homepage']);
-
     Route::get('/events', [EventController::class, 'index']);
     Route::get('/events/{id}', [EventController::class, 'show']);
     Route::get('/events/{id}/tikets', [EventController::class, 'tiket']);
-    Route::get('/checkout', function () {
-        return view('checkout');
-    });
+    Route::post('/logout', [AuthController::class, 'logout']);
+});
 
-    Route::get('/cart', function () {
-        return view('cart');
-    });
 
-    Route::get('/category', function () {
-        return view('category');
-    });
 
-    Route::get('/edit', function () {
-        return view('editwisata');
+Route::middleware(['admin'])->group(function () {
+    Route::controller(CategoryController::class)->prefix("admin/categories")->group(function () {
+        Route::post('/create', 'store');
     });
-
-    Route::get('/add', function () {
-        return view('tambahwisata');
+    
+    Route::controller(UserController::class)->prefix("admin/users")->group(function () {
+        Route::get('/', 'index');
+        Route::delete('/{id}', 'destroy');
     });
-
-    Route::get('/add2', function () {
-        return view('admin2.formEvent');
-    });
-
-    Route::get('/detailEvent', function () {
-        return view('detailevent');
+    
+    Route::controller(CheckoutController::class)->prefix("admin/checkouts")->group(function () {
+        Route::get('/', 'index');
     });
 });
 
-Route::controller(CityController::class)->prefix("/admin/cities")->group(function () {
-    Route::get('/', 'index');
-    Route::get('/create', 'create');
-    Route::post('/create', 'store');
-    Route::get('/{id}', 'show');
-    Route::get('/{id}/edit', 'edit');
-    Route::put('/{id}', 'update');
-    Route::delete('/{id}', 'destroy');
-});
+Route::middleware(['organizer'])->group(function () {
+    Route::get('/admin', [HomePageController::class, 'homepageAdmin']);
 
-Route::controller(EventController::class)->prefix("/admin/events")->group(function () {
-    Route::get('/', 'indexAdmin');
-    Route::get('/create', 'create');
-    Route::post('/create', 'store');
-    Route::get('/{id}', 'showAdmin');
-    Route::get('/{id}/edit', 'edit');
-    Route::put('/{id}', 'update');
-    Route::delete('/{id}', 'destroy');
+    Route::controller(CityController::class)->prefix("/admin/cities")->group(function () {
+        Route::get('/', 'index');
+        Route::get('/create', 'create');
+        Route::post('/create', 'store');
+        Route::get('/{id}', 'show');
+        Route::get('/{id}/edit', 'edit');
+        Route::put('/{id}', 'update');
+        Route::delete('/{id}', 'destroy');
+    });
+    
+    Route::controller(EventController::class)->prefix("/admin/events")->group(function () {
+        Route::get('/', 'indexAdmin');
+        Route::get('/create', 'create');
+        Route::post('/create', 'store');
+        Route::get('/{id}', 'showAdmin');
+        Route::get('/{id}/edit', 'edit');
+        Route::put('/{id}', 'update');
+        Route::delete('/{id}', 'destroy');
+    });
+    
+    Route::controller(TiketController::class)->prefix("/admin/events/{event_id}/tikets")->group(function () {
+        Route::get('/', 'index');
+        Route::get('/create', 'create');
+        Route::post('/create', 'store');
+        Route::get('/{tiket_id}', 'show');
+        Route::get('/{tiket_id}/edit', 'edit');
+        Route::put('/{tiket_id}', 'update');
+        Route::delete('/{tiket_id}', 'destroy');
+    });
 });
-
-Route::controller(TiketController::class)->prefix("/admin/events/{event_id}/tikets")->group(function () {
-    Route::get('/', 'index');
-    Route::get('/create', 'create');
-    Route::post('/create', 'store');
-    Route::get('/{tiket_id}', 'show');
-    Route::get('/{tiket_id}/edit', 'edit');
-    Route::put('/{tiket_id}', 'update');
-    Route::delete('/{tiket_id}', 'destroy');
-});
-
-Route::controller(CategoryController::class)->prefix("admin/categories")->group(function () {
-    Route::post('/create', 'store');
-});
-
-Route::controller(UserController::class)->prefix("admin/users")->group(function () {
-    Route::get('/', 'index');
-    Route::delete('/{id}', 'destroy');
-});
-
-Route::controller(CheckoutController::class)->prefix("admin/checkouts")->group(function () {
-    Route::get('/', 'index');
-   
-});
-
-Route::get('/admin', [HomePageController::class, 'homepageAdmin']);
