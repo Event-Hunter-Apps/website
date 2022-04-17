@@ -8,7 +8,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Wisata</title>
+    <title>Form Add Event</title>
+    <link rel="icon" href="{{asset('assets/img/1.png')}}"/>
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
@@ -125,7 +126,7 @@
 
                 <input type="file" id="image_upload" name="image_upload" accept="image/png, image/jpg">
 
-                
+
                 <br>
                 <div class="description-title-tambah-wisata">
                     <b>Description</b><br>
@@ -142,66 +143,66 @@
                     <div class="col-position-tambah-wisata">
                         <label for="">Category Name</label><br>
                         <input class="@error('nama_kategori') is-invalid @enderror" type="text" name="nama_kategori" id="pos-edit" value="{{ isset($event)?$event->nama_kategori:'' }}">
-                        <button type="submit" class="btn-add-category"><b>Add</b></button>
-                    </div>
-                    @error('nama_kategori')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                    <br>
-                </div>
-            </div> --}}
+            <button type="submit" class="btn-add-category"><b>Add</b></button>
+    </div>
+    @error('nama_kategori')
+    <div class="alert alert-danger">{{ $message }}</div>
+    @enderror
+    <br>
+    </div>
+    </div> --}}
 
-            <div class="tambah-tiket-wisata" style="margin-top: 50px;">
+    <div class="tambah-tiket-wisata" style="margin-top: 50px;">
 
-                <div class="title-tambah-tiket-wisata">
-                    <b>Add Detail Ticket</b><br><br>
-                    <label for="">Category ID</label><br>
-                    <select class="form-select @error('kategori_id') is-invalid @enderror" name="kategori_id" style="width:200px; height:45px; padding:5 10; border-radius:25px; border: 1px solid #57C2B8; " aria-label="Default select example">
-                        <option selected>-</option>
-                        @foreach ($categories as $category)
-                        <option value="{{$category->id}}">{{$category->nama}}</option>
-                        @endforeach
+        <div class="title-tambah-tiket-wisata">
+            <b>Add Detail Ticket</b><br><br>
+            <label for="">Category ID</label><br>
+            <select class="form-select @error('kategori_id') is-invalid @enderror" name="kategori_id" style="width:200px; height:45px; padding:5 10; border-radius:25px; border: 1px solid #57C2B8; " aria-label="Default select example">
+                <option selected>-</option>
+                @foreach ($categories as $category)
+                <option value="{{$category->id}}">{{$category->nama}}</option>
+                @endforeach
 
-                    </select>
-                    @error('kategori_id')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+            </select>
+            @error('kategori_id')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
 
-                    <br>
-                    <br>
-                    <div class="col-position-tambah-wisata">
-                        <label for="">Ticket Name</label><br>
-                        <input class="@error('nama_tiket') is-invalid @enderror" type="text" name="nama_tiket" id="pos-edit">
-                    </div>
-                    @error('nama_tiket')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                    <br>
-                    <div class="col-position-tambah-wisata">
-                        <label for="">Ticket Price</label><br>
-                        <input class="@error('harga_tiket') is-invalid @enderror" type="text" name="harga_tiket" id="pos-edit">
-                    </div>
-                    @error('harga_tiket')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                    <br>
-                    <div class="col-position-tambah-wisata">
-                        <label for="">Ticket Description</label><br>
-                        <textarea class="@error('deskripsi_tiket') is-invalid @enderror" name="deskripsi_tiket" id="text-desc-tambah-wisata" cols="30" rows="10" required>{{ isset($event)?$event->deskripsi_tiket:'' }}</textarea>
-                    </div>
-                    @error('deskripsi_tiket')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                    <br>
-
-                </div>
-
+            <br>
+            <br>
+            <div class="col-position-tambah-wisata">
+                <label for="">Ticket Name</label><br>
+                <input class="@error('nama_tiket') is-invalid @enderror" type="text" name="nama_tiket" id="pos-edit">
             </div>
-
-            <div class="btn-disc-save-tambah-wisata">
-                <button type="submit" class="save-tambah-wisata"><b>Submit</b></button>
+            @error('nama_tiket')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            <br>
+            <div class="col-position-tambah-wisata">
+                <label for="">Ticket Price</label><br>
+                <input class="@error('harga_tiket') is-invalid @enderror" type="text" name="harga_tiket" id="pos-edit">
             </div>
-        </form>
+            @error('harga_tiket')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            <br>
+            <div class="col-position-tambah-wisata">
+                <label for="">Ticket Description</label><br>
+                <textarea class="@error('deskripsi_tiket') is-invalid @enderror" name="deskripsi_tiket" id="text-desc-tambah-wisata" cols="30" rows="10" required>{{ isset($event)?$event->deskripsi_tiket:'' }}</textarea>
+            </div>
+            @error('deskripsi_tiket')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
+            <br>
+
+        </div>
+
+    </div>
+
+    <div class="btn-disc-save-tambah-wisata">
+        <button type="submit" class="save-tambah-wisata"><b>Submit</b></button>
+    </div>
+    </form>
     </div>
 
     <script>

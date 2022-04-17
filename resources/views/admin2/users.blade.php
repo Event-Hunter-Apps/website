@@ -1,5 +1,10 @@
 @extends('admin2.sidebar')
 
+@section('title')
+<title>Manage Users</title>
+<link rel="icon" href="{{asset('assets/img/1.png')}}"/>
+@endsection
+
 @section('list')
 <div class="row mb-4 pb-5 mx-3">
     <table class="table table-striped text-center table-bordered" id="table">

@@ -16,6 +16,7 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
     <title>{{isset($title)?$title:''}}</title>
+    <link rel="icon" href="{{asset('assets/img/1.png')}}"/>
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
@@ -25,7 +26,7 @@
 
 <body>
 
-    <div class="container">
+    <div class="container mt-5">
         <h1><b>Detail Event</b></h1>
         <div class="card-detail-event">
             <div class="wrapper-detail-event row">

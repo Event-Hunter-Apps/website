@@ -1,6 +1,14 @@
 @extends('admin2.sidebar')
 
+@section('title')
+<title>Manage Events</title>
+<link rel="icon" href="{{asset('assets/img/1.png')}}"/>
+@endsection
+
 @section('list')
+
+
+
 <div class="row mb-4 pb-5 mx-3">
   <div class="d-flex justify-content-between">
     <a href="/admin/events/create"><button class="btn btn-primary mb-4">Create Event</button></a>
@@ -13,7 +21,7 @@
   <div class="col-lg-2 col-md-3 col-sm-4 col-6 mb-4 mb-lg-0">
     <!-- Card-->
     <div class="card rounded shadow-sm border-0 mb-4">
-      <img src="{{$event->imageUrl}}" alt="" class="img-fluid d-block">
+      <img src="{{$event->imageUrl}}" alt="" class="img-fluid d-block" style="height: 250px;">
       <div class="card-body">
         <h5> <a href="#" class="text-dark"></a>{{$event->nama}}</h5>
         <p class="small text-muted font-italic">Starting from</p>

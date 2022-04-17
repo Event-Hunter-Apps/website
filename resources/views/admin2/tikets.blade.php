@@ -1,5 +1,9 @@
 @extends('template.master')
 
+@section('title')
+<title>All Tickets</title>
+@endsection
+
 @section('body')
 <section class="content">
   <div class="container">

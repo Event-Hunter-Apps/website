@@ -1,5 +1,6 @@
 @extends('template.master')
-
+<title>Home</title>
+<link rel="icon" href="{{asset('assets/img/1.png')}}" />
 @section('body')
 <section id="landing">
   <div class="container-fluid px-0 top-banner">
@@ -7,7 +8,7 @@
       <div class="content">
         <div class="col-lg-5 col-md-6 ">
           <div class="h1">
-            Enjoy Your 
+            Enjoy Your
           </div>
 
           <div class="h1">
@@ -39,7 +40,7 @@
       <div>
         <!-- Card-->
         <div class="card rounded shadow-sm border-0 mb-4">
-          <img src="{{$event->imageUrl}}" alt="" class="img-fluid d-block">
+          <img src="{{$event->imageUrl}}" alt="" class="img-fluid d-block" style="height: 250px;">
           <div class="card-body">
             <h5> <a href="#" class="text-dark"></a>{{$event->nama}}</h5>
             <p class="small text-muted font-italic">Starting from</p>
