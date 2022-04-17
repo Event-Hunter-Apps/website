@@ -1,4 +1,7 @@
 @extends('admin2.sidebar')
+@section('title')
+<title>Form City</title>
+@endsection
 @section('list')
 <div class="container">
     <h2 class="text-center mb-4">{{ $title }} City</h2>
@@ -12,10 +15,10 @@
             </div>
         </div>
         @error('name')
-            <div class="alert alert-danger">{{ $message }}</div>
+        <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         <button type="submit" class="btn btn-primary">Simpan</button>
-      </form>
-    </div>
+    </form>
+</div>
 </div>
 @endsection

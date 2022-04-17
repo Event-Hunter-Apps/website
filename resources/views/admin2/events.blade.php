@@ -1,6 +1,13 @@
 @extends('admin2.sidebar')
 
+@section('title')
+<title>Dashboard - Events</title>
+@endsection
+
 @section('list')
+
+<title>Dashboard - Events</title>
+
 <div class="row mb-4 pb-5 mx-3">
   <div class="d-flex justify-content-between">
     <a href="/admin/events/create"><button class="btn btn-primary mb-4">Create Event</button></a>
