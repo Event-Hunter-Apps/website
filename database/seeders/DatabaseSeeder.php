@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Tiket;
+use App\Models\Order;
+use App\Models\Role;
 class DatabaseSeeder extends Seeder
 {
     /**
