@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Event Hunter</title>
+    @yield('title')
+
     <link rel="stylesheet" href="./assets/css/landing.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
@@ -26,11 +27,14 @@
             width: 100%;
             z-index: 1030;
         }
-        .h1, .h2{
+
+        .h1,
+        .h2 {
             font-family: poppins;
-            font-weight:bold;
+            font-weight: bold;
 
         }
+
         .scrolled-down {
             transform: translateY(-100%);
             transition: all 0.3s ease-in-out;
@@ -40,21 +44,22 @@
             transform: translateY(0);
             transition: all 0.3s ease-in-out;
         }
-        .top-banner{
-            width:100%;
-            
-            background-size:auto;
-            margin-top:2rem ;
-            
+
+        .top-banner {
+            width: 100%;
+
+            background-size: auto;
+            margin-top: 2rem;
+
         }
-        .content{
-            position:relative;
+
+        .content {
+            position: relative;
             width: 100%;
             display: flex;
-            justify-content:space-between;
-            align-items:center;
+            justify-content: space-between;
+            align-items: center;
         }
-        
     </style>
     <script type="text/javascript">
         document.addEventListener("DOMContentLoaded", function() {

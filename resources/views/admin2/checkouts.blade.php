@@ -1,6 +1,11 @@
 @extends('admin2.sidebar')
 
+@section('title')
+<title>Dashboard - Checkouts</title>
+@endsection
+
 @section('list')
+
 
 <div class="row mb-4 pb-5 mx-3">
     <table class="table table-striped text-center table-bordered" id="table">

@@ -1,4 +1,9 @@
 @extends('admin2.sidebar')
+
+@section('title')
+<title>Form Ticket</title>
+@endsection
+
 @section('list')
 <div class="container">
     <h2 class="text-center mb-4">{{ $title }} </h2>
@@ -15,7 +20,7 @@
             </select>
         </div>
         @error('kategori')
-            <div class="alert alert-danger">{{ $message }}</div>
+        <div class="alert alert-danger">{{ $message }}</div>
         @enderror
 
 
@@ -26,7 +31,7 @@
             </div>
         </div>
         @error('nama')
-            <div class="alert alert-danger">{{ $message }}</div>
+        <div class="alert alert-danger">{{ $message }}</div>
         @enderror
 
         <div class="mb-3 row">
@@ -36,7 +41,7 @@
             </div>
         </div>
         @error('deskripsi')
-            <div class="alert alert-danger">{{ $message }}</div>
+        <div class="alert alert-danger">{{ $message }}</div>
         @enderror
 
         <div class="mb-3 row">
@@ -46,10 +51,10 @@
             </div>
         </div>
         @error('harga')
-            <div class="alert alert-danger">{{ $message }}</div>
+        <div class="alert alert-danger">{{ $message }}</div>
         @enderror
         <button type="submit" class="btn btn-primary">Simpan</button>
-      </form>
-    </div>
+    </form>
+</div>
 </div>
 @endsection
