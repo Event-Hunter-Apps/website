@@ -2,6 +2,7 @@
 <html lang="en">
 	<head>
 		<title>register</title>
+		<link rel="icon" href="{{asset('assets/img/1.png')}}"/>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
