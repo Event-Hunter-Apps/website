@@ -120,7 +120,4 @@ Route::controller(CheckoutController::class)->prefix("admin/checkouts")->group(f
    
 });
 
-Route::get('/admin', function() {
-    return view('admin2.landingpageadmin');
-    
-});
+Route::get('/admin', [HomePageController::class, 'homepageAdmin']);

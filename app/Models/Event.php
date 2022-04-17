@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes; 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Event extends Model
 {
@@ -47,6 +48,12 @@ class Event extends Model
                 $kota = "";
             }
             return $query->where('kota', 'like', '%'.$kota.'%');
+        });
+    }
+
+    public function imageUrl(): Attribute {
+        return new Attribute( get: function( $originalValue ){
+            return $originalValue;
         });
     }
 }

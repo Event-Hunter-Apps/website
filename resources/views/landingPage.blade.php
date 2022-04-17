@@ -32,8 +32,9 @@
       <div>
         <!-- Card-->
         <div class="card rounded shadow-sm border-0 mb-4">
-          <img src="{{$event->image}}" alt="" class="img-fluid d-block">
+          <img src="" alt="" class="img-fluid d-block">
           <div class="card-body">
+            {{$event->imageUrl}} test
             <h5> <a href="#" class="text-dark"></a>{{$event->nama}}</h5>
             <p class="small text-muted font-italic">Starting from</p>
             <p><b>Rp {{$event->harga}}</b></p>
