@@ -19,7 +19,6 @@ use App\Http\Controllers\CheckoutController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return redirect('/login');
 });
@@ -46,8 +45,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/events/{id}/tikets', [EventController::class, 'tiket']);
     Route::post('/logout', [AuthController::class, 'logout']);
 });
-
-
 
 Route::middleware(['admin'])->group(function () {
     Route::controller(CategoryController::class)->prefix("admin/categories")->group(function () {

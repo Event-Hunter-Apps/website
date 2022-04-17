@@ -61,7 +61,7 @@ class TiketController extends Controller
             "kategori" => 'required',
             "nama" => 'required', 
             "deskripsi" => 'required',
-            "harga" => 'required'
+            "harga" => 'required|integer'
         ]);
 
         $tiket = Tiket::Create([

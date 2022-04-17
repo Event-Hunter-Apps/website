@@ -38,6 +38,14 @@ class EventController extends Controller
         ]);
     }
 
+    public function indexOrganizer($user_id)
+    {
+        $events = Event::where('user_id',$user_id);
+        return view('admin2.events', [
+            'events'=> $events,
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -76,7 +84,7 @@ class EventController extends Controller
             'jam_tutup' => 'required',
             'lokasi' => 'required',
             'kota' => 'required',
-            'harga' => 'required',
+            'harga' => 'required|integer',
             'kategori_id' => 'required',
             'nama_tiket' => 'required',
             'harga_tiket' => 'required|integer',

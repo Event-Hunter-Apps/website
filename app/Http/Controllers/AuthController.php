@@ -16,7 +16,11 @@ class AuthController extends Controller
         
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/home');
+
+            if (Auth::user()->role_id == 3) {
+                return redirect()->intended('/home');
+            }
+            return redirect()->intended('/admin');
         }
     
         return back()->with('loginError', 'Invalid login credentials. Please try again.');
