@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Wisata</title>
+    <title>Edit Event</title>
 
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
@@ -34,7 +34,7 @@
             <div class="card-tambah-wisata">
                 <div class="wrapper-tambah-wisata row">
                     <div class="preview-tambah-wisata text-center justify-content-center" id="preview-tambah-wisata">
-                        <img class="tempat-img" id="tempat-img" src="{{$event->image}}" alt="No Image">
+                        <img class="tempat-img" id="tempat-img" src="{{$event->imageUrl}}" alt="No Image">
 
                     </div>
 
@@ -51,7 +51,7 @@
 
                         <div class="col-position-tambah-wisata">
                             <label for="">Price</label><br>
-                            <input class="@error('harga') is-invalid @enderror" type="text" name="harga" id="pos-edit" value="{{ isset($event)?$event->harga:'' }}">
+                            <input class="@error('harga') is-invalid @enderror" type="text" name="harga" id="pos-edit" value="Rp {{ isset($event)?$event->idrPrice:'' }}">
                         </div>
                         @error('harga')
                         <div class="alert alert-danger">{{ $message }}</div>

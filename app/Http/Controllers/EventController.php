@@ -24,17 +24,6 @@ class EventController extends Controller
     public function index()
     {   
         $events = Event::latest()->filter(request(['nama', 'kota']))->get();
-        foreach ($events as $key => $value) {
-            $expiresAt = new \DateTime('tomorrow');
-            $imageReference = app('firebase.storage')->getBucket()->object( $value->image);
-
-            if ($imageReference->exists()) {
-                $image = $imageReference->signedUrl($expiresAt);
-            } else {
-                $image = null;
-            }
-            $value->image = $image;
-        }
         return view('events', [
             'events'=> $events,
             'cities'=> City::all(),
@@ -44,17 +33,6 @@ class EventController extends Controller
     public function indexAdmin()
     {
         $events = Event::all();
-        foreach ($events as $key => $value) {
-            $expiresAt = new \DateTime('tomorrow');
-            $imageReference = app('firebase.storage')->getBucket()->object($value->image);
-
-            if ($imageReference->exists()) {
-                $image = $imageReference->signedUrl($expiresAt);
-            } else {
-                $image = null;
-            }
-            $value->image = $image;
-        }
         return view('admin2.events', [
             'events'=> $events,
         ]);
@@ -154,17 +132,6 @@ class EventController extends Controller
     {
         
         $event = Event::find($id);
-
-        $expiresAt = new \DateTime('tomorrow');
-        $imageReference = app('firebase.storage')->getBucket()->object($event->image);
-
-        if ($imageReference->exists()) {
-            $image = $imageReference->signedUrl($expiresAt);
-        } else {
-            $image = null;
-        }
-        $event->image = $image;
-
         if ($event != null) {
             return view('detailEvent', [
                 "title" => $event->nama,
@@ -182,19 +149,7 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        
         $event = Event::find($id);
-
-        $expiresAt = new \DateTime('tomorrow');
-        $imageReference = app('firebase.storage')->getBucket()->object($event->image);
-
-        if ($imageReference->exists()) {
-            $image = $imageReference->signedUrl($expiresAt);
-        } else {
-            $image = null;
-        }
-        $event->image = $image;
-        
         $cities = City::all();
         return view('admin2.formEditEvent', [
             "method" => "PUT",

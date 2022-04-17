@@ -30,27 +30,14 @@
         <div class="card-detail-event">
             <div class="wrapper-detail-event row">
                 <div class="preview-detail-event tab-content">
-                    <img src="{{$event->image}}" height="400" />
-
-                    <!-- <div class="tab-pane" id="pic-2"><img src="./assets/img/Rectangle 49.png" /></div>
-                        <div class="tab-pane" id="pic-3"><img src="./assets/img/Rectangle 50.png" /></div> -->
-
-                    <!-- <ul class="preview-thumbnail-detail-event nav nav-tabs">
-                        <li>
-                            <a data-target="#pic-1" data-toggle="tab"><img src="./assets/img/denise-jans-LRWGGldq3ow-unsplash.jpg" style="height: 60px; width: 50px; border-radius: 10px;" /></a>
-                        </li>
-                        <li>
-                            <a data-target="#pic-2" data-toggle="tab"><img src="./assets/img/denise-jans-LRWGGldq3ow-unsplash.jpg" style="height: 60px; width: 50px; border-radius: 10px;" /></a>
-                        </li>
-                        <li>
-                            <a data-target="#pic-3" data-toggle="tab"><img src="./assets/img/denise-jans-LRWGGldq3ow-unsplash.jpg" style="height: 60px; width: 50px; border-radius: 10px;" /></a>
-                        </li>
-                    </ul> -->
-
+                    <img src="{{$event->imageUrl}}" height="400" />
                 </div>
                 <div class="details-detail-event">
                     <h2 class="product-title-detail-event"><b>{{isset($event)?$event->nama:''}}</b></h2><br>
-
+                    <div>
+                        <label for="">Price</label><br>
+                        <input class="event-city-decoration" type="text" name="kota" id="pos-edit" value="Rp {{isset($event)?$event->idrPrice:''}}" disabled>
+                    </div>
                     <!-- <h4 class="harga-detail-event" style="margin-top: -10px;"><b>Rp 25.000</b></h4> -->
                     <label for="">Date</label>
                     <div class="date-input-detail-event" style="margin-top: 5px;">
@@ -61,10 +48,6 @@
                     </div><br>
                     <label for="">Time</label>
                     <div class="time-input-detail-event">
-
-                        <!-- <input type="time" name="time-start" id="time1">
-                        <span class="line-time-detail-event"></span>
-                        <span><input type="time" name="time-end" id="time2" style="margin-left: 65px;"></span> -->
                         <input type="text" class="form-control time-pickable" id="start_time" name="start_time" value="{{isset($event)?$event->jam_buka:''}}" disabled />
 
                         <input type="text" class="form-control time-pickable" id="start_time" name="start_time" value="{{isset($event)?$event->jam_tutup:''}}" disabled />
