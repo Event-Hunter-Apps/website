@@ -131,7 +131,7 @@
                 <br>
                 <div class="description-title-tambah-wisata">
                     <b>Description</b><br>
-                    <textarea class="@error('deskripsi') is-invalid @enderror" name="deskripsi" id="text-desc-tambah-wisata" cols="30" rows="10" required></textarea>
+                    <textarea class="@error('deskripsi') is-invalid @enderror" name="deskripsi" id="text-desc-tambah-wisata" cols="30" rows="10" required>{{old('deskripsi')}}</textarea>
                 </div>
                 @error('deskripsi')
                 <div class="alert alert-danger">{{ $message }}</div>
