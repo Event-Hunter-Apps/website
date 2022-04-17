@@ -1,5 +1,6 @@
 @extends('template.master')
-
+<title>Available Tickets</title>
+<link rel="icon" href="{{asset('assets/img/1.png')}}"/>
 @section('body')
 
 <!-- Navbar -->
@@ -14,7 +15,7 @@
 
   <div class="container">
     <!-- Back button dan Teks Promo -->
-    <div class="row justify-content-center mb-2">
+    <div class="row justify-content-center mb-2 mt-5">
       <div class="col-1">
         <a href="#" onclick="history.go(-1)">
           <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16" style="color: #57c2b8; width: 150px">
