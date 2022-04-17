@@ -1,12 +1,13 @@
 @extends('admin2.sidebar')
 
 @section('title')
-<title>Dashboard - Events</title>
+<title>Manage Events</title>
+<link rel="icon" href="{{asset('assets/img/1.png')}}"/>
 @endsection
 
 @section('list')
 
-<title>Dashboard - Events</title>
+
 
 <div class="row mb-4 pb-5 mx-3">
   <div class="d-flex justify-content-between">

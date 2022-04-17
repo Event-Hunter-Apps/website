@@ -1,7 +1,8 @@
 @extends('admin2.sidebar')
 
 @section('title')
-<title>Dashboard - Users</title>
+<title>Manage Users</title>
+<link rel="icon" href="{{asset('assets/img/1.png')}}"/>
 @endsection
 
 @section('list')

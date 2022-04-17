@@ -1,5 +1,5 @@
 @extends('template.master')
-<title>Dashboard</title>
+<title>Home</title>
 <link rel="icon" href="{{asset('assets/img/1.png')}}" />
 @section('body')
 <section id="landing">
