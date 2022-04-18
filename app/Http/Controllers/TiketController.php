@@ -122,6 +122,7 @@ class TiketController extends Controller
     {
 
         $tiket = Tiket::find($tiket_id);
+        // dd($request->all());
         $tiket->update($request->all());
         return redirect("/admin/events/$event_id/tikets")->with('msg', 'berhasil');
     }

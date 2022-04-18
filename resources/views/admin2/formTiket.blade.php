@@ -12,14 +12,14 @@
         <input type="hidden" name="_method" value="{{ $method }}" />
         <div class="mb-3 row">
             <label class="col-sm-2 col-form-label">Kategori</label>
-            <select class="form-select @error('kategori') is-invalid @enderror" name="kategori">
+            <select class="form-select @error('kategori_id') is-invalid @enderror" name="kategori_id">
                 <option selected>{{ isset($tiket)?$tiket->kategori_id:'' }}</option>
                 @foreach ($categories as $kategori)
                 <option value="{{$kategori->id}}">{{$kategori->nama}}</option>
                 @endforeach
             </select>
         </div>
-        @error('kategori')
+        @error('kategori_id')
         <div class="alert alert-danger">{{ $message }}</div>
         @enderror
 

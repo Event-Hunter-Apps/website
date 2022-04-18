@@ -25,16 +25,16 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         City::insert(
             array(
-                array('name' => "Aceh"),
-                array('name' => "Medan"),
-                array('name' => "Padang"),
-                array('name' => "Bengkulu"),
-                array('name' => "Banten"),
-                array('name' => "Jakarta"),
-                array('name' => "Bandung"),
-                array('name' => "Jogjakarta"),
-                array('name' => "Solo"),
-                array('name' => "Surabaya"),
+                array('name' => "Aceh", "created_at" => date("Y-m-d"), "updated_at" => date("Y-m-d")),
+                array('name' => "Medan", "created_at" => date("Y-m-d"), "updated_at" => date("Y-m-d")),
+                array('name' => "Padang", "created_at" => date("Y-m-d"), "updated_at" => date("Y-m-d")),
+                array('name' => "Bengkulu", "created_at" => date("Y-m-d"), "updated_at" => date("Y-m-d")),
+                array('name' => "Banten", "created_at" => date("Y-m-d"), "updated_at" => date("Y-m-d")),
+                array('name' => "Jakarta", "created_at" => date("Y-m-d"), "updated_at" => date("Y-m-d")),
+                array('name' => "Bandung", "created_at" => date("Y-m-d"), "updated_at" => date("Y-m-d")),
+                array('name' => "Jogjakarta", "created_at" => date("Y-m-d"), "updated_at" => date("Y-m-d")),
+                array('name' => "Solo", "created_at" => date("Y-m-d"), "updated_at" => date("Y-m-d")),
+                array('name' => "Surabaya", "created_at" => date("Y-m-d"), "updated_at" => date("Y-m-d"))
             )
         );
         Kategori::insert(

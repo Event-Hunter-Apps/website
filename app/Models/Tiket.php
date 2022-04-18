@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes; 
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use App\Models\Kategori;
 
 class Tiket extends Model
 {
@@ -27,5 +28,9 @@ class Tiket extends Model
         return new Attribute( get: function() {
             return number_format($this->harga, 0, ',', '.' );
         });
+    }
+
+    public function kategori() {
+        return $this->belongsTo(Kategori::class);
     }
 }

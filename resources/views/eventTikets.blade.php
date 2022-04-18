@@ -36,7 +36,7 @@
           @foreach ($tikets as $tiket)
           <div class="mb-4 list-tile">
             <div class="row mb-2">
-              <span class="col-9 fw-bold">[-] {{$tiket->nama}}</span>
+              <span class="col-9 fw-bold">[{{$tiket->kategori->nama}}] {{$tiket->nama}}</span>
               <span class="col-3 fw-bold">Rp {{$tiket->idrPrice}}</span>
             </div>
             <div class="row mb-2">
