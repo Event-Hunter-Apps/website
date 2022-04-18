@@ -69,6 +69,9 @@ class DatabaseSeeder extends Seeder
                 array('user_id' => "1", "nama" => "Tugu Buaya", "deskripsi" => "Deskripsi Tugu Buaya", 'tanggal_mulai' => '2022-04-14', 'tanggal_berakhir' => '2022-04-18', "jam_buka" => "12:30", "jam_tutup" => "21:30", "lokasi" => "Jalan Surabaya", "kota" => "Surabaya", "harga" => "15000", "image" => "Events/1650299510.jpg",),
                 array('user_id' => "1", "nama" => "Museum Aceh", "deskripsi" => "Deskripsi Museum Aceh", 'tanggal_mulai' => '2022-04-15', 'tanggal_berakhir' => '2022-04-20', "jam_buka" => "13:30", "jam_tutup" => "22:30", "lokasi" => "Jalan Aceh", "kota" => "Aceh", "harga" => "20000", "image" => "Events/1650299565.jpg",),
                 array('user_id' => "1", "nama" => "Museum The Colo Madu", "deskripsi" => "Deskripsi Museum The Colo Madu", 'tanggal_mulai' => '2022-04-16', 'tanggal_berakhir' => '2022-04-22', "jam_buka" => "14:30", "jam_tutup" => "20:30", "lokasi" => "Jalan Solo", "kota" => "Solo", "harga" => "25000", "image" => "Events/1650299623.jpg",),
+                array('user_id' => "1", "nama" => "Candi Borobudur", "deskripsi" => "Deskripsi Candi Borobudur", 'tanggal_mulai' => '2022-04-18', 'tanggal_berakhir' => '2022-04-28', "jam_buka" => "10:30", "jam_tutup" => "21:30", "lokasi" => "Jalan Jogyakarta", "kota" => "Jogyakarta", "harga" => "25000", "image" => "Events/1650299910.jpg",),
+                array('user_id' => "1", "nama" => "Candi Prambanan", "deskripsi" => "Deskripsi Candi Prambanan", 'tanggal_mulai' => '2022-04-16', 'tanggal_berakhir' => '2022-04-25', "jam_buka" => "11:30", "jam_tutup" => "20:30", "lokasi" => "Jalan Jogyakarta", "kota" => "Jogyakarta", "harga" => "100000", "image" => "Events/1650324709.jpg",),
+
             )
         );
 
