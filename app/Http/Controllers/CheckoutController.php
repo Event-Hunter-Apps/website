@@ -70,7 +70,12 @@ class CheckoutController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $checkout = Checkout::find($id);
+        $checkout->paid_at =  date("Y-m-d");
+        $checkout->status = "Complete";
+        $checkout->save();
+
+        return redirect("/admin/checkouts");
     }
 
     /**

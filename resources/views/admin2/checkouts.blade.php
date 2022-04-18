@@ -28,18 +28,29 @@
                 <td>{{ $item->id }}</td>
                 <td>{{ $item->user->nama }}</td>
                 <td>{{ $item->tanggal_checkout }}</td>
-                <td>{{ $item->status }}</td>
-                <td>{{ $item->total_harga }}</td>
+
+                @if($item->status == "Pending")
+                <td><p class="text-white bg-warning rounded-3">{{ $item->status }}</p></td>
+                @elseif($item->status == "Complete")
+                <td><p class="text-white bg-success rounded-3">{{ $item->status }}</p></td>
+                @else
+                <td><p class="text-white bg-danger rounded-3">{{ $item->status }}</p></td>
+                @endif
+
+                <td>Rp. {{ $item->idrPrice }}</td>
                 <td>{{ isset($item->paid_at)?$item->paid_at:'-' }}</td>
                 <td>
+                    @if($item->status == "Cancel")
+                    -
+                    @else
                     <div class="btn-group" role="group" aria-label="Basic example">
-
-                        <form method="post" action="/admin/orders/{{ $item->id }}" style="display:inline" onsubmit="return confirm('You sure?')">
+                        <form method="post" action="/admin/checkouts/{{ $item->id }}" style="display:inline" onsubmit="return confirm('You sure?')">
                             @csrf
                             @method('PUT')
                             <button class="btn btn-{{isset($item->paid_at)?'secondary':'success'}}" {{isset($item->paid_at)?'disabled':''}}>{{isset($item->paid_at)?'Approved':'Approve'}}</button>
                         </form>
                     </div>
+                    @endif
                 </td>
             </tr>
             @endforeach

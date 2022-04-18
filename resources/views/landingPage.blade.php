@@ -44,7 +44,7 @@
           <div class="card-body">
             <h5> <a href="#" class="text-dark"></a>{{$event->nama}}</h5>
             <p class="small text-muted font-italic">Starting from</p>
-            <p><b>Rp {{$event->harga}}</b></p>
+            <p><b>Rp {{$event->idrPrice}}</b></p>
             <p class="icon-item"><i class="bi bi-calendar"></i> {{$event->tanggal_mulai}}</p>
             <p class="icon-item"><i class="bi bi-clock"></i> {{$event->jam_buka}} - {{$event->jam_tutup}}</p>
             <p class="icon-item"><i class="bi bi-geo-alt"></i> {{$event->kota}}</p>

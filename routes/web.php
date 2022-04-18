@@ -58,6 +58,7 @@ Route::middleware(['admin'])->group(function () {
     
     Route::controller(CheckoutController::class)->prefix("admin/checkouts")->group(function () {
         Route::get('/', 'index');
+        Route::put('/{id}', 'update');
     });
 });
 

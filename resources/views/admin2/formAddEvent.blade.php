@@ -125,7 +125,7 @@
             <div class="description-tambah-wisata" style="margin-top: 0px;">
 
 
-                <input type="file" id="image_upload" name="image_upload" accept="image/png, image/jpg">
+                <input type="file" id="image_upload" name="image_upload">
 
 
                 <br>

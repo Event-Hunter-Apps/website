@@ -54,7 +54,7 @@ class DatabaseSeeder extends Seeder
 
         User::insert(
             array(
-                array('role_id' => 1, "email" => "admin@gmail.com", "password" => bcrypt("admin"), 'nama' => 'Admin', 'no_hp' => '081111111111'),
+                array('role_id' => 1, "email" => "restuarachman@gmail.com", "password" => bcrypt("1234"), 'nama' => 'Restu Aditya Rachman', 'no_hp' => '081111111111'),
                 array('role_id' => 2, "email" => "alexsandra@gmail.com", "password" => bcrypt("1234"), 'nama' => 'Alexandra', 'no_hp' => '082222222222'),
                 array('role_id' => 3, "email" => "boltez@gmail.com", "password" => bcrypt("1234"), 'nama' => 'Boltez', 'no_hp' => '083333333333'),
                 array('role_id' => 3, "email" => "hikaru@gmail.com", "password" => bcrypt("1234"), 'nama' => 'Hikaru', 'no_hp' => '084444444444'),
@@ -103,7 +103,8 @@ class DatabaseSeeder extends Seeder
 
         Checkout::insert(
             array(
-                array('user_id' => 3, 'tanggal_checkout' => "2022-04-27", 'status' => "Pending", 'total_harga' => 50000, 'paid_at' => '2022-04-20'),
+                array('user_id' => 3, 'tanggal_checkout' => "2022-04-27", 'status' => "Pending", 'total_harga' => 50000, 'paid_at' => null),
+                array('user_id' => 3, 'tanggal_checkout' => "2022-04-27", 'status' => "Pending", 'total_harga' => 50000, 'paid_at' => null),
                 array('user_id' => 4, 'tanggal_checkout' => "2022-04-27", 'status' => "Cancel", 'total_harga' => 20000, 'paid_at' => null),
                 array('user_id' => 5, 'tanggal_checkout' => "2022-04-17", 'status' => "Complete", 'total_harga' => 35000, 'paid_at' => '2022-04-15'),
                 array('user_id' => 4, 'tanggal_checkout' => "2022-04-17", 'status' => "Complete", 'total_harga' => 50000, 'paid_at' => '2022-04-15'),
