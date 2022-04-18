@@ -20,20 +20,7 @@ return new class extends Migration
             $table->softDeletes($column = 'deleted_at', $precision = 0);
         });
 
-        DB::table("cities")->insert(
-            array(
-                array("name" => "Bandung", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
-                array("name" => "Jakarta", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
-                array("name" => "Yogyakarta", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
-                array("name" => "Ambon", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
-                array("name" => "Balikpapan", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
-                array("name" => "Bekasi", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
-                array("name" => "Binjai", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
-                array("name" => "Bogor", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
-                array("name" => "Cimahi", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
-                array("name" => "Sidoarjo", "created_at" => new Datetime("now"), "updated_at" => new Datetime("now")),
-            )
-        );
+        
     }
 
     /**
