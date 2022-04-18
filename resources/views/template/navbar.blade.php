@@ -30,17 +30,22 @@
                 <div class="dropdown-item disabled">
                   <div>
 
-                    {{Auth::user()->role->name}} 
-                    
+                    {{Auth::user()->role->name}}
+
                   </div>
                   {{ Auth::user()->nama}}
                 </div>
               </li>
               <!-- kalo misal role nya EO : tambahin 'Add Your Event' -->
               <!-- Buat Admin -->
+              @can('admin')
+              <li>
+                <a href="/admin" type="submit" class="dropdown-item"><i class="bi bi-gear-fill"></i> Manage</a>
+              </li>
+              @endcan
               @can('organizer')
               <li>
-                <a href="/organizer" type="submit" class="dropdown-item"><i class="bi bi-gear-fill"></i> Manage</a>
+                <a href="/admin" type="submit" class="dropdown-item"><i class="bi bi-gear-fill"></i> Manage</a>
               </li>
               @endcan
 
