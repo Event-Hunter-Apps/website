@@ -8,13 +8,14 @@ use App\Models\Role;
 class UserController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Restu Aditya Rachman - 1301190433 
+     * Menampilkan data list user yang memiliki role id 2, 3 
+     * (eo dan customer) ke tampilan daftar user
+     * 
+     * @return Mengirimkan data list user ke tampilan admin2.users
      */
     public function index()
     {
-
         $users = User::whereIn('role_id', [2,3])->get();
         // dd($users);
         return view('admin2.users', [
@@ -78,10 +79,11 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Restu Aditya Rachman - 1301190433 
+     * Menghapus user yang memiliki id = $id pada database .
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  int  $id adalah id dari user
+     * @return melakukan redirect ke /admin/users dengan msg
      */
     public function destroy($id)
     {
