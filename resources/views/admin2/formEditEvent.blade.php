@@ -36,7 +36,7 @@
             <div class="card-tambah-wisata">
                 <div class="wrapper-tambah-wisata row">
                     <div class="preview-tambah-wisata text-center justify-content-center" id="preview-tambah-wisata">
-                        <img class="tempat-img" id="tempat-img" src="{{$event->imageUrl}}" alt="No Image">
+                        <img class="tempat-img" id="tempat-img" src="{{$event->image}}" alt="No Image">
 
                     </div>
 
