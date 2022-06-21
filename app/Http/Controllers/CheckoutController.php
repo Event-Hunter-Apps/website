@@ -72,7 +72,9 @@ class CheckoutController extends Controller
     {
         $checkout = Checkout::find($id);
         $checkout->paid_at =  date("Y-m-d");
-        $checkout->status = "Complete";
+        $checkout->status = $request["status"];
+        $request["status"];
+        // $checkout->status = "Complete";
         $checkout->save();
 
         return redirect("/admin/checkouts");

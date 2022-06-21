@@ -41,16 +41,28 @@
                 <td>{{ isset($item->paid_at)?$item->paid_at:'-' }}</td>
                 <td>
                     @if($item->status == "Cancel")
-                    -
+                        Canceled
+                    @elseif($item->status == "Complete")
+                        Completed
                     @else
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <form method="post" action="/admin/checkouts/{{ $item->id }}" style="display:inline" onsubmit="return confirm('You sure?')">
                             @csrf
                             @method('PUT')
-                            <button class="btn btn-{{isset($item->paid_at)?'secondary':'success'}}" {{isset($item->paid_at)?'disabled':''}}>{{isset($item->paid_at)?'Approved':'Approve'}}</button>
+                            <input type="hidden" name="status" value="Complete">
+                            <button class="btn btn-success">Approve</button>
+                        </form>
+                    </div>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <form method="post" action="/admin/checkouts/{{ $item->id }}" style="display:inline" onsubmit="return confirm('You sure?')">
+                            @csrf
+                            @method('PUT')
+                            <input type="hidden" name="status" value="Cancel">
+                            <button class="btn btn-danger">Cancel</button>
                         </form>
                     </div>
                     @endif
+                 
                 </td>
             </tr>
             @endforeach

@@ -38,9 +38,9 @@ class EventController extends Controller
         ]);
     }
 
-    public function indexOrganizer($user_id)
+    public function indexOrganizer()
     {
-        $events = Event::where('user_id',$user_id);
+        $events = Event::where('user_id',auth()->user()->id)->get();
         return view('admin2.events', [
             'events'=> $events,
         ]);
@@ -102,6 +102,7 @@ class EventController extends Controller
                 $uploadedfile = fopen($localfolder.$file, 'r');
                 app('firebase.storage')->getBucket()->upload($uploadedfile, ['name' => $firebase_storage_path . $file]);
                 unlink($localfolder . $file);
+                $image_url = "https://firebasestorage.googleapis.com/v0/b/test-d7d37.appspot.com/o/Events%2F".$file."?alt=media";
             }
         }
 
@@ -117,7 +118,7 @@ class EventController extends Controller
             'lokasi' => $validator['lokasi'],
             'kota' => $validator['kota'],
             'harga' => $validator['harga'],
-            'image' => $firebase_storage_path . $file
+            'image' => $image_url
         ]);
     
         $tiket = Tiket::create([

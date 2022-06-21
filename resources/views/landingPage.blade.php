@@ -40,7 +40,7 @@
       <div>
         <!-- Card-->
         <div class="card rounded shadow-sm border-0 mb-4">
-          <img src="{{$event->imageUrl}}" alt="" class="img-fluid d-block" style="height: 250px;">
+          <img src="{{$event->image}}" alt="" class="img-fluid d-block" style="height: 250px;">
           <div class="card-body">
             <h5> <a href="#" class="text-dark"></a>{{$event->nama}}</h5>
             <p class="small text-muted font-italic">Starting from</p>

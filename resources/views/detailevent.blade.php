@@ -31,7 +31,7 @@
         <div class="card-detail-event">
             <div class="wrapper-detail-event row">
                 <div class="preview-detail-event tab-content">
-                    <img src="{{$event->imageUrl}}" height="400" />
+                    <img src="{{$event->image}}" height="400" />
                 </div>
                 <div class="details-detail-event">
                     <h2 class="product-title-detail-event"><b>{{isset($event)?$event->nama:''}}</b></h2><br>
